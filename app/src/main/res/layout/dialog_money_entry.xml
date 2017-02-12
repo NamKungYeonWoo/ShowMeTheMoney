@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        //date
+
+        <DatePicker
+            android:id="@+id/datePicker"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        //income, expense
+
+        <Switch
+            android:id="@+id/switch1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="20dp"
+            android:paddingEnd="24dp"
+            android:paddingLeft="24dp"
+            android:paddingRight="24dp"
+            android:paddingStart="24dp"
+            android:paddingTop="20dp"
+            android:text="Switch" />
+
+        //et Money
+        <EditText
+            android:id="@+id/etMoney"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:paddingBottom="20dp"
+            android:paddingEnd="24dp"
+            android:paddingLeft="24dp"
+            android:paddingRight="24dp"
+            android:paddingStart="24dp"
+            android:paddingTop="20dp"
+            android:hint="@string/hint_et_money"
+            android:inputType="numberSigned">
+
+            <requestFocus />
+        </EditText>
+
+        //description
+
+        <EditText
+            android:id="@+id/etDesc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:paddingBottom="20dp"
+            android:paddingEnd="24dp"
+            android:paddingLeft="24dp"
+            android:paddingRight="24dp"
+            android:paddingStart="24dp"
+            android:paddingTop="20dp"
+            android:hint="@string/hint_et_desc"
+            android:inputType="text" />
+    </LinearLayout>
+</ScrollView>

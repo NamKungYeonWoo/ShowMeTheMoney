@@ -26,8 +26,10 @@ public class MainActivity extends AppCompatActivity {
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
 
-                Intent startBarActivity = new Intent(MainActivity.this, BarChartActivity.class);
-                startActivity(startBarActivity);
+                MoneyEntryDialogFragment fragment = new MoneyEntryDialogFragment();
+                fragment.show(getFragmentManager(), "TAG");
+                //Intent startBarActivity = new Intent(MainActivity.this, BarChartActivity.class);
+                //startActivity(startBarActivity);
             }
         });
     }
