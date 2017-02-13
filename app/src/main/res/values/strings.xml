@@ -3,4 +3,6 @@
     <string name="action_settings">Settings</string>
     <string name="hint_et_money">금액</string>
     <string name="hint_et_desc">설명</string>
+    <string name="income">수입</string>
+    <string name="expense">지출</string>
 </resources>

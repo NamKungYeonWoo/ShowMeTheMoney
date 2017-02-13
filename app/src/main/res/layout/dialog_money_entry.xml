@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:segmentedgroup="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -13,39 +14,67 @@
         <DatePicker
             android:id="@+id/datePicker"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            />
 
         //income, expense
 
-        <Switch
-            android:id="@+id/switch1"
+        <info.hoang8f.android.segmented.SegmentedGroup
+            android:id="@+id/sgIncomeExpense"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingBottom="20dp"
-            android:paddingEnd="24dp"
-            android:paddingLeft="24dp"
-            android:paddingRight="24dp"
-            android:paddingStart="24dp"
-            android:paddingTop="20dp"
-            android:text="Switch" />
+            android:layout_marginBottom="20dp"
+            android:layout_marginEnd="24dp"
+            android:layout_marginLeft="24dp"
+            android:layout_marginRight="24dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal"
+            segmentedgroup:sc_border_width="1dp"
+            segmentedgroup:sc_corner_radius="10dp"
+            segmentedgroup:sc_tint_color="@color/colorAccentLight"
+            >
+
+            <RadioButton
+                android:id="@+id/btIncome"
+                style="@style/RadioButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="@android:style/TextAppearance.DeviceDefault.Medium"
+                android:layout_weight="1"
+                android:checked="false"
+                android:text="@string/income" />
+
+            <RadioButton
+                android:id="@+id/btExpense"
+                style="@style/RadioButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:textAppearance="@android:style/TextAppearance.DeviceDefault.Medium"
+                android:layout_weight="1"
+                android:text="@string/expense" />
+        </info.hoang8f.android.segmented.SegmentedGroup>
 
         //et Money
-        <EditText
-            android:id="@+id/etMoney"
+
+        <com.blackcat.currencyedittext.CurrencyEditText
+            android:id="@+id/etAmount"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:layout_marginEnd="24dp"
+            android:layout_marginLeft="24dp"
+            android:layout_marginRight="24dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="20dp"
             android:ems="10"
-            android:paddingBottom="20dp"
-            android:paddingEnd="24dp"
-            android:paddingLeft="24dp"
-            android:paddingRight="24dp"
-            android:paddingStart="24dp"
-            android:paddingTop="20dp"
             android:hint="@string/hint_et_money"
-            android:inputType="numberSigned">
+            android:inputType="numberSigned"
+            android:paddingTop="20dp">
 
             <requestFocus />
-        </EditText>
+        </com.blackcat.currencyedittext.CurrencyEditText>
 
         //description
 
@@ -53,13 +82,13 @@
             android:id="@+id/etDesc"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:layout_marginEnd="24dp"
+            android:layout_marginLeft="24dp"
+            android:layout_marginRight="24dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="20dp"
             android:ems="10"
-            android:paddingBottom="20dp"
-            android:paddingEnd="24dp"
-            android:paddingLeft="24dp"
-            android:paddingRight="24dp"
-            android:paddingStart="24dp"
-            android:paddingTop="20dp"
             android:hint="@string/hint_et_desc"
             android:inputType="text" />
     </LinearLayout>
