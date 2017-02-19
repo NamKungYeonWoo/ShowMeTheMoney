@@ -5,7 +5,7 @@ android {
     buildToolsVersion "25.0.2"
     defaultConfig {
         applicationId "com.zettafantasy.visualhousekeepingbook"
-        minSdkVersion 15
+        minSdkVersion 24
         targetSdkVersion 25
         versionCode 1
         versionName "1.0"
@@ -36,4 +36,7 @@ dependencies {
     //ui
     compile 'com.github.BlacKCaT27:CurrencyEditText:v1.4.4' // edit text ext for currency
     compile 'info.hoang8f:android-segmented:1.0.6' // segmented-control
+
+    compile 'com.jakewharton:butterknife:8.5.1' // view binding
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.5.1'
 }
