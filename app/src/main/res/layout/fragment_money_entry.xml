@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/tools"
+    xmlns:app2="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
@@ -19,8 +20,6 @@
             android:layout_marginBottom="20dp"
             android:layout_marginTop="20dp"
             android:background="@drawable/bt_date_pick"
-            android:drawableLeft="@drawable/ic_date_range_black_24dp"
-            android:drawableStart="@drawable/ic_date_range_black_24dp"
             android:gravity="center_vertical|start"
             android:textAppearance="@android:style/TextAppearance.DeviceDefault.WindowTitle"
             tools:text="2017/02/21" />
@@ -63,32 +62,34 @@
         <!--</info.hoang8f.android.segmented.SegmentedGroup>-->
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:paddingTop="16dp">
 
-            <android.support.v7.widget.AppCompatEditText
+            <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:drawableLeft="@drawable/ic_attach_money_black_24dp"
-                android:drawableStart="@drawable/ic_attach_money_black_24dp"
                 android:hint="@string/hint_et_money"
                 android:imeOptions="actionNext"
                 android:inputType="numberSigned"
+                android:textSize="16sp"
                 tools:text="12,000" />
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:paddingTop="16dp"
+            app2:counterEnabled="true"
+            app2:counterMaxLength="50">
 
             <EditText
                 android:id="@+id/etDesc"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:drawableLeft="@drawable/ic_description_black_24dp"
-                android:drawableStart="@drawable/ic_description_black_24dp"
                 android:hint="@string/hint_et_desc"
                 android:imeOptions="actionNext"
-                android:inputType="text" />
+                android:inputType="text"
+                android:textSize="16sp" />
         </android.support.design.widget.TextInputLayout>
 
 
