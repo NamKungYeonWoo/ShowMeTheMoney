@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.DatePicker;
+import android.widget.TextView;
 
 import com.zettafantasy.visualhousekeepingbook.R;
 
@@ -32,8 +33,8 @@ public class MoneyEntryFragment extends Fragment {
 
     private Unbinder unbinder;
 
-    @BindView(R.id.btPickDate)
-    Button btPickDate;
+    @BindView(R.id.tvPickDate)
+    TextView tvPickDate;
 
     @Nullable
     @Override
@@ -50,9 +51,9 @@ public class MoneyEntryFragment extends Fragment {
                 rightNow.get(Calendar.MONTH) + 1,
                 rightNow.get(Calendar.DAY_OF_MONTH));
 
-        btPickDate.setText(formattedDate);
+        tvPickDate.setText(formattedDate);
 
-        btPickDate.setOnClickListener(new View.OnClickListener() {
+        tvPickDate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 new DatePickerDialog(
@@ -61,7 +62,7 @@ public class MoneyEntryFragment extends Fragment {
                             @Override
                             public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
                                 String formattedDate = String.format(Locale.KOREAN, "%04d.%02d.%02d", year, month + 1, dayOfMonth);
-                                btPickDate.setText(formattedDate);
+                                tvPickDate.setText(formattedDate);
                             }
                         },
                         rightNow.get(Calendar.YEAR),

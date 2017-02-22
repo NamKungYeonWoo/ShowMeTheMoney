@@ -9,21 +9,27 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:layout_marginStart="16dp"
         android:orientation="vertical">
 
-        <Button
-            android:id="@+id/btPickDate"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
-            android:layout_marginTop="20dp"
-            android:background="@drawable/bt_date_pick"
-            android:gravity="center_vertical|start"
-            android:textAppearance="@android:style/TextAppearance.DeviceDefault.WindowTitle"
-            tools:text="2017/02/21" />
+            android:orientation="horizontal">
 
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_margin="12dp"
+                android:background="@color/colorAccent" />
+
+            <TextView
+                android:id="@+id/tvPickDate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                tools:text="2017/02/21" />
+        </LinearLayout>
         <!--<info.hoang8f.android.segmented.SegmentedGroup-->
         <!--android:id="@+id/sgIncomeExpense"-->
         <!--android:layout_width="match_parent"-->
@@ -60,38 +66,57 @@
         <!--android:text="@string/expense"-->
         <!--android:textAppearance="@android:style/TextAppearance.DeviceDefault.Medium" />-->
         <!--</info.hoang8f.android.segmented.SegmentedGroup>-->
-        <android.support.design.widget.TextInputLayout
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingTop="16dp">
+            android:orientation="horizontal">
 
-            <EditText
+            <Space
+                android:layout_width="48dp"
+                android:layout_height="48dp" />
+
+            <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/hint_et_money"
-                android:imeOptions="actionNext"
-                android:inputType="numberSigned"
-                android:textSize="16sp"
-                tools:text="12,000" />
-        </android.support.design.widget.TextInputLayout>
+                android:paddingTop="16dp">
 
-        <android.support.design.widget.TextInputLayout
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/hint_et_money"
+                    android:imeOptions="actionNext"
+                    android:inputType="numberSigned"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    tools:text="12,000" />
+            </android.support.design.widget.TextInputLayout>
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingTop="16dp"
-            app2:counterEnabled="true"
-            app2:counterMaxLength="50">
+            android:orientation="horizontal">
 
-            <EditText
-                android:id="@+id/etDesc"
+            <Space
+                android:layout_width="48dp"
+                android:layout_height="48dp" />
+
+            <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/hint_et_desc"
-                android:imeOptions="actionNext"
-                android:inputType="text"
-                android:textSize="16sp" />
-        </android.support.design.widget.TextInputLayout>
+                android:paddingTop="16dp"
+                app2:counterEnabled="true"
+                app2:counterMaxLength="50">
 
+                <EditText
+                    android:id="@+id/etDesc"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/hint_et_desc"
+                    android:imeOptions="actionNext"
+                    android:inputType="text"
+                    android:textAppearance="?android:attr/textAppearanceMedium" />
+            </android.support.design.widget.TextInputLayout>
+        </LinearLayout>
 
         <!--<Button-->
         <!--android:id="@+id/btSave"-->
