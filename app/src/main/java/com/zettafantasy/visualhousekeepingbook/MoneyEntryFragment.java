@@ -4,26 +4,20 @@ import android.app.DatePickerDialog;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
+import android.widget.ArrayAdapter;
 import android.widget.DatePicker;
+import android.widget.Spinner;
 import android.widget.TextView;
 
-import com.zettafantasy.visualhousekeepingbook.R;
-
-import java.text.DateFormat;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.Locale;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
-
-import static android.content.ContentValues.TAG;
 
 /**
  * Created by uije on 17. 2. 15.
@@ -35,6 +29,8 @@ public class MoneyEntryFragment extends Fragment {
 
     @BindView(R.id.tvPickDate)
     TextView tvPickDate;
+    @BindView(R.id.sEntryType)
+    Spinner sEntryType;
 
     @Nullable
     @Override
@@ -71,6 +67,14 @@ public class MoneyEntryFragment extends Fragment {
                         .show();
             }
         });
+
+        // Create an ArrayAdapter using the string array and a default spinner layout
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getContext(),
+                R.array.expense_type, android.R.layout.simple_spinner_item);
+        // Specify the layout to use when the list of choices appears
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        // Apply the adapter to the spinner
+        sEntryType.setAdapter(adapter);
 
         return view;
     }

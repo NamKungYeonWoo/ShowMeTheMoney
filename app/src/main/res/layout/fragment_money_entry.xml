@@ -9,18 +9,25 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:paddingEnd="16dp"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:paddingStart="16dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            app:ignore="UseCompoundDrawables">
 
             <ImageView
                 android:layout_width="24dp"
                 android:layout_height="24dp"
+                android:layout_gravity="center"
                 android:layout_margin="12dp"
-                android:background="@color/colorAccent" />
+                android:background="@color/colorAccent"
+                android:contentDescription="@string/icon_for_date_picker" />
 
             <TextView
                 android:id="@+id/tvPickDate"
@@ -30,54 +37,24 @@
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 tools:text="2017/02/21" />
         </LinearLayout>
-        <!--<info.hoang8f.android.segmented.SegmentedGroup-->
-        <!--android:id="@+id/sgIncomeExpense"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_marginBottom="20dp"-->
-        <!--android:layout_marginEnd="24dp"-->
-        <!--android:layout_marginLeft="24dp"-->
-        <!--android:layout_marginRight="24dp"-->
-        <!--android:layout_marginStart="24dp"-->
-        <!--android:layout_marginTop="20dp"-->
-        <!--android:orientation="horizontal"-->
-        <!--segmentedgroup:sc_border_width="1dp"-->
-        <!--segmentedgroup:sc_corner_radius="10dp"-->
-        <!--segmentedgroup:sc_checked_text_color="@color/colorPrimaryDark"-->
-        <!--segmentedgroup:sc_tint_color="@color/colorPrimaryLight">-->
 
-        <!--<RadioButton-->
-        <!--android:id="@+id/btIncome"-->
-        <!--style="@style/RadioButton"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_weight="1"-->
-        <!--android:checked="false"-->
-        <!--android:text="@string/income"-->
-        <!--android:textAppearance="@android:style/TextAppearance.DeviceDefault.Medium" />-->
-
-        <!--<RadioButton-->
-        <!--android:id="@+id/btExpense"-->
-        <!--style="@style/RadioButton"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_weight="1"-->
-        <!--android:checked="true"-->
-        <!--android:text="@string/expense"-->
-        <!--android:textAppearance="@android:style/TextAppearance.DeviceDefault.Medium" />-->
-        <!--</info.hoang8f.android.segmented.SegmentedGroup>-->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-            <Space
-                android:layout_width="48dp"
-                android:layout_height="48dp" />
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_gravity="bottom|center_horizontal"
+                android:layout_margin="12dp"
+                android:background="@color/colorAccent"
+                android:contentDescription="@string/icon_for_money" />
 
             <android.support.design.widget.TextInputLayout
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:paddingTop="16dp">
 
                 <EditText
@@ -89,6 +66,15 @@
                     android:textAppearance="?android:attr/textAppearanceLarge"
                     tools:text="12,000" />
             </android.support.design.widget.TextInputLayout>
+
+            <ToggleButton
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|center_horizontal"
+                android:layout_weight="1"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textOff="@string/expense"
+                android:textOn="@string/income" />
         </LinearLayout>
 
         <LinearLayout
@@ -96,9 +82,13 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-            <Space
-                android:layout_width="48dp"
-                android:layout_height="48dp" />
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_gravity="center"
+                android:layout_margin="12dp"
+                android:background="@color/colorAccent"
+                android:contentDescription="@string/icon_for_description" />
 
             <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
@@ -114,22 +104,31 @@
                     android:hint="@string/hint_et_desc"
                     android:imeOptions="actionNext"
                     android:inputType="text"
-                    android:textAppearance="?android:attr/textAppearanceMedium" />
+                    android:textAppearance="?android:attr/textAppearanceLarge" />
             </android.support.design.widget.TextInputLayout>
         </LinearLayout>
 
-        <!--<Button-->
-        <!--android:id="@+id/btSave"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_marginBottom="20dp"-->
-        <!--android:layout_marginEnd="24dp"-->
-        <!--android:layout_marginLeft="24dp"-->
-        <!--android:layout_marginRight="24dp"-->
-        <!--android:layout_marginStart="24dp"-->
-        <!--android:layout_marginTop="20dp"-->
-        <!--android:background="@drawable/bt_entry_save"-->
-        <!--android:text="@string/save"-->
-        <!--android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large.Inverse" />-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_gravity="center"
+                android:layout_margin="12dp"
+                android:background="@color/colorAccent"
+                android:contentDescription="@string/icon_for_description" />
+
+            <Spinner
+                android:id="@+id/sEntryType"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        </LinearLayout>
+
     </LinearLayout>
 </ScrollView>

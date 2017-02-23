@@ -6,4 +6,15 @@
     <string name="income">수입</string>
     <string name="expense">지출</string>
     <string name="save">저장</string>
+    <string name="icon_for_date_picker">icon for date picker</string>
+    <string name="icon_for_description">icon for description</string>
+    <string name="icon_for_money">icon for money</string>
+
+    <string-array name="expense_type">
+        <item>식비</item>
+        <item>교통비</item>
+        <item>의류비</item>
+        <item>유흥</item>
+        <item>교육비</item>
+    </string-array>
 </resources>
