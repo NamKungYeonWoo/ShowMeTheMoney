@@ -26,8 +26,8 @@
                 android:layout_height="24dp"
                 android:layout_gravity="center"
                 android:layout_margin="12dp"
-                android:background="@color/colorAccent"
-                android:contentDescription="@string/icon_for_date_picker" />
+                android:contentDescription="@string/icon_for_date_picker"
+                android:src="@drawable/ic_date_range_black_24dp" />
 
             <TextView
                 android:id="@+id/tvPickDate"
@@ -48,8 +48,8 @@
                 android:layout_height="24dp"
                 android:layout_gravity="bottom|center_horizontal"
                 android:layout_margin="12dp"
-                android:background="@color/colorAccent"
-                android:contentDescription="@string/icon_for_money" />
+                android:contentDescription="@string/icon_for_money"
+                android:src="@drawable/ic_attach_money_black_24dp" />
 
             <android.support.design.widget.TextInputLayout
                 android:layout_width="0dp"
@@ -58,6 +58,7 @@
                 android:paddingTop="16dp">
 
                 <EditText
+                    android:id="@+id/etMoney"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/hint_et_money"
@@ -87,8 +88,8 @@
                 android:layout_height="24dp"
                 android:layout_gravity="center"
                 android:layout_margin="12dp"
-                android:background="@color/colorAccent"
-                android:contentDescription="@string/icon_for_description" />
+                android:contentDescription="@string/icon_for_description"
+                android:src="@drawable/ic_description_black_24dp" />
 
             <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
@@ -113,21 +114,16 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-            <ImageView
+            <Space
                 android:layout_width="24dp"
                 android:layout_height="24dp"
-                android:layout_gravity="center"
-                android:layout_margin="12dp"
-                android:background="@color/colorAccent"
-                android:contentDescription="@string/icon_for_description" />
+                android:layout_margin="12dp" />
 
             <Spinner
                 android:id="@+id/sEntryType"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:textAppearance="?android:attr/textAppearanceLarge" />
-
+                android:layout_gravity="center_vertical" />
         </LinearLayout>
 
     </LinearLayout>

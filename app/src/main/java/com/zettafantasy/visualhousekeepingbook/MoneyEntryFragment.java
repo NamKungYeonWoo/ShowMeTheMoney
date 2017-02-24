@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.DatePicker;
+import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -31,6 +32,8 @@ public class MoneyEntryFragment extends Fragment {
     TextView tvPickDate;
     @BindView(R.id.sEntryType)
     Spinner sEntryType;
+    @BindView(R.id.etMoney)
+    EditText etMoney;
 
     @Nullable
     @Override
@@ -70,7 +73,7 @@ public class MoneyEntryFragment extends Fragment {
 
         // Create an ArrayAdapter using the string array and a default spinner layout
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getContext(),
-                R.array.expense_type, android.R.layout.simple_spinner_item);
+                R.array.expense_type, R.layout.custom_spinner_item);
         // Specify the layout to use when the list of choices appears
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         // Apply the adapter to the spinner
