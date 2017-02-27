@@ -30,10 +30,10 @@ public class MoneyEntryFragment extends Fragment {
 
     @BindView(R.id.tvPickDate)
     TextView tvPickDate;
-    @BindView(R.id.sEntryType)
-    Spinner sEntryType;
-    @BindView(R.id.etMoney)
-    EditText etMoney;
+//    @BindView(R.id.sEntryType)
+//    Spinner sEntryType;
+//    @BindView(R.id.etMoney)
+//    EditText etMoney;
 
     @Nullable
     @Override
@@ -77,7 +77,7 @@ public class MoneyEntryFragment extends Fragment {
         // Specify the layout to use when the list of choices appears
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         // Apply the adapter to the spinner
-        sEntryType.setAdapter(adapter);
+        //sEntryType.setAdapter(adapter);
 
         return view;
     }
