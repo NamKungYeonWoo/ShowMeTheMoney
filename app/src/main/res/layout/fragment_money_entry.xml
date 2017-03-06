@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/drawer_layout"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
+    android:id="@+id/layout_money_entry"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:background="#ffffffff">
 
     <RelativeLayout
         android:id="@+id/input1"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="48.0dip"
         android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
@@ -51,7 +51,7 @@
 
     <RelativeLayout
         android:id="@+id/input2"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="50.0dip"
         android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
@@ -65,7 +65,7 @@
             android:layout_alignParentLeft="true"
             android:layout_marginBottom="4.0dip"
             android:layout_marginLeft="14.0dip"
-            android:src="@drawable/ic_catecory" />
+            android:src="@drawable/ic_category" />
 
         <TextView
             android:id="@+id/textView33"
@@ -94,8 +94,8 @@
 
     <RelativeLayout
         android:id="@+id/input22"
-        android:layout_width="wrap_content"
-        android:layout_height="48.0dip"
+        android:layout_width="match_parent"
+        android:layout_height="70.0dip"
         android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
         android:layout_below="@id/input2">
@@ -124,20 +124,23 @@
         <EditText
             android:id="@+id/textView6666"
             android:layout_width="wrap_content"
-            android:layout_height="30.0dip"
+            android:layout_height="wrap_content"
             android:layout_above="@id/textView3333"
             android:layout_alignLeft="@id/textView3333"
             android:layout_alignRight="@id/textView3333"
-            android:layout_marginBottom="4.0dip"
             android:gravity="center"
             android:hint="상세 설명"
-            android:textAppearance="?android:textAppearanceSmall"
+            android:inputType="textMultiLine"
+            android:lines="2"
+            android:maxLines="2"
+            android:minLines="1"
+            android:textAppearance="?android:textAppearanceMedium"
             android:textColor="#ffaaaaaa" />
     </RelativeLayout>
 
     <RelativeLayout
         android:id="@+id/input3"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="48.0dip"
         android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
@@ -165,7 +168,7 @@
             android:background="#ffdddddd" />
 
         <TextView
-            android:id="@+id/textView666"
+            android:id="@+id/tvAmount"
             android:layout_width="wrap_content"
             android:layout_height="30.0dip"
             android:layout_above="@id/textView333"
@@ -179,8 +182,8 @@
     </RelativeLayout>
 
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
@@ -188,157 +191,157 @@
         android:orientation="vertical">
 
         <LinearLayout
-            android:layout_width="fill_parent"
+            android:layout_width="match_parent"
             android:layout_height="0.0dip"
             android:layout_weight="1.0">
 
             <TextView
-                android:id="@+id/textView8"
+                android:id="@+id/tvNumber1"
                 android:layout_width="0.0dip"
-                android:layout_height="fill_parent"
+                android:layout_height="match_parent"
                 android:layout_gravity="center"
                 android:layout_weight="1.0"
                 android:gravity="center"
-                android:text="1"
+                android:text="@string/number_1"
                 android:textAppearance="?android:textAppearanceLarge"
                 android:textColor="#ff474747"
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/textView9"
+                android:id="@+id/tvNumber2"
                 android:layout_width="0.0dip"
-                android:layout_height="fill_parent"
+                android:layout_height="match_parent"
                 android:layout_weight="1.0"
                 android:gravity="center"
-                android:text="2"
+                android:text="@string/number_2"
                 android:textAppearance="?android:textAppearanceLarge"
                 android:textColor="#ff474747"
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/textView10"
+                android:id="@+id/tvNumber3"
                 android:layout_width="0.0dip"
-                android:layout_height="fill_parent"
+                android:layout_height="match_parent"
                 android:layout_weight="1.0"
                 android:gravity="center"
-                android:text="3"
-                android:textAppearance="?android:textAppearanceLarge"
-                android:textColor="#ff474747"
-                android:textStyle="bold" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="fill_parent"
-            android:layout_height="0.0dip"
-            android:layout_weight="1.0">
-
-            <TextView
-                android:id="@+id/TextView03"
-                android:layout_width="0.0dip"
-                android:layout_height="fill_parent"
-                android:layout_weight="1.0"
-                android:gravity="center"
-                android:text="4"
-                android:textAppearance="?android:textAppearanceLarge"
-                android:textColor="#ff474747"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/TextView02"
-                android:layout_width="0.0dip"
-                android:layout_height="fill_parent"
-                android:layout_weight="1.0"
-                android:gravity="center"
-                android:text="5"
-                android:textAppearance="?android:textAppearanceLarge"
-                android:textColor="#ff474747"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/TextView01"
-                android:layout_width="0.0dip"
-                android:layout_height="fill_parent"
-                android:layout_weight="1.0"
-                android:gravity="center"
-                android:text="6"
+                android:text="@string/number_3"
                 android:textAppearance="?android:textAppearanceLarge"
                 android:textColor="#ff474747"
                 android:textStyle="bold" />
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="fill_parent"
+            android:layout_width="match_parent"
             android:layout_height="0.0dip"
             android:layout_weight="1.0">
 
             <TextView
-                android:id="@+id/TextView04"
+                android:id="@+id/tvNumber4"
                 android:layout_width="0.0dip"
-                android:layout_height="fill_parent"
+                android:layout_height="match_parent"
                 android:layout_weight="1.0"
                 android:gravity="center"
-                android:text="7"
+                android:text="@string/number_4"
                 android:textAppearance="?android:textAppearanceLarge"
                 android:textColor="#ff474747"
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/TextView05"
+                android:id="@+id/tvNumber5"
                 android:layout_width="0.0dip"
-                android:layout_height="fill_parent"
+                android:layout_height="match_parent"
                 android:layout_weight="1.0"
                 android:gravity="center"
-                android:text="8"
+                android:text="@string/number_5"
                 android:textAppearance="?android:textAppearanceLarge"
                 android:textColor="#ff474747"
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/TextView06"
+                android:id="@+id/tvNumber6"
                 android:layout_width="0.0dip"
-                android:layout_height="fill_parent"
+                android:layout_height="match_parent"
                 android:layout_weight="1.0"
                 android:gravity="center"
-                android:text="9"
+                android:text="@string/number_6"
                 android:textAppearance="?android:textAppearanceLarge"
                 android:textColor="#ff474747"
                 android:textStyle="bold" />
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="fill_parent"
+            android:layout_width="match_parent"
             android:layout_height="0.0dip"
             android:layout_weight="1.0">
 
             <TextView
-                android:id="@+id/TextView07"
+                android:id="@+id/tvNumber7"
                 android:layout_width="0.0dip"
-                android:layout_height="fill_parent"
+                android:layout_height="match_parent"
                 android:layout_weight="1.0"
                 android:gravity="center"
-                android:text="00"
+                android:text="@string/number_7"
                 android:textAppearance="?android:textAppearanceLarge"
                 android:textColor="#ff474747"
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/TextView09"
+                android:id="@+id/tvNumber8"
                 android:layout_width="0.0dip"
-                android:layout_height="fill_parent"
+                android:layout_height="match_parent"
                 android:layout_weight="1.0"
                 android:gravity="center"
-                android:text="0"
+                android:text="@string/number_8"
                 android:textAppearance="?android:textAppearanceLarge"
                 android:textColor="#ff474747"
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/TextView08"
+                android:id="@+id/tvNumber9"
                 android:layout_width="0.0dip"
-                android:layout_height="fill_parent"
+                android:layout_height="match_parent"
                 android:layout_weight="1.0"
                 android:gravity="center"
-                android:text="C"
+                android:text="@string/number_9"
+                android:textAppearance="?android:textAppearanceLarge"
+                android:textColor="#ff474747"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0.0dip"
+            android:layout_weight="1.0">
+
+            <TextView
+                android:id="@+id/tvNumber00"
+                android:layout_width="0.0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="1.0"
+                android:gravity="center"
+                android:text="@string/number_00"
+                android:textAppearance="?android:textAppearanceLarge"
+                android:textColor="#ff474747"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvNumber0"
+                android:layout_width="0.0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="1.0"
+                android:gravity="center"
+                android:text="@string/number_0"
+                android:textAppearance="?android:textAppearanceLarge"
+                android:textColor="#ff474747"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvNumberC"
+                android:layout_width="0.0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="1.0"
+                android:gravity="center"
+                android:text="@string/tvNumberClear"
                 android:textAppearance="?android:textAppearanceLarge"
                 android:textColor="#ff474747"
                 android:textStyle="bold" />
