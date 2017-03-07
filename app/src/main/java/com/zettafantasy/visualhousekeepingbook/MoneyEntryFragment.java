@@ -1,22 +1,20 @@
 package com.zettafantasy.visualhousekeepingbook;
 
 import android.app.DatePickerDialog;
+import android.content.DialogInterface;
 import android.icu.text.DecimalFormat;
-import android.icu.text.NumberFormat;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AlertDialog;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.DatePicker;
-import android.widget.EditText;
-import android.widget.Spinner;
 import android.widget.TextView;
 
-import java.text.ParseException;
 import java.util.Calendar;
 import java.util.Locale;
 
@@ -61,6 +59,8 @@ public class MoneyEntryFragment extends Fragment {
     TextView tvNumberC;
     @BindView(R.id.tvAmount)
     TextView tvAmount;
+    @BindView(R.id.tvEntryType)
+    TextView tvEntryType;
 
     private final DecimalFormat currencyFormat = new DecimalFormat("#,###,###");
 
@@ -73,6 +73,7 @@ public class MoneyEntryFragment extends Fragment {
 
         initNumberPad();
         initDatePicker();
+        initEntryType();
 
         // Create an ArrayAdapter using the string array and a default spinner layout
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getContext(),
@@ -83,6 +84,27 @@ public class MoneyEntryFragment extends Fragment {
         //sEntryType.setAdapter(adapter);
 
         return view;
+    }
+
+    private void initEntryType() {
+        tvEntryType.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final String[] singleChoiceItems = new String[]{"식비", "교통비", "유흥비", "회비", "쇼핑"};
+                int itemSelected = 0;
+                new AlertDialog.Builder(getContext())
+                        .setTitle("타입")
+                        .setSingleChoiceItems(singleChoiceItems, itemSelected, new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                dialogInterface.dismiss();
+                                tvEntryType.setText(singleChoiceItems[i]);
+                            }
+                        })
+                        .setNegativeButton("CANCEL", null)
+                        .show();
+            }
+        });
     }
 
     private void initDatePicker() {

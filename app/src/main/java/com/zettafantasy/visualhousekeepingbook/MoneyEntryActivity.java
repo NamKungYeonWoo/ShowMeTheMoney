@@ -7,6 +7,8 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 
 import java.util.ArrayList;
@@ -31,6 +33,23 @@ public class MoneyEntryActivity extends AppCompatActivity {
         initViewPager();
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_entry, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        if (id == R.id.action_save) {
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
     public void initViewPager() {
         mTabLayout = (TabLayout) findViewById(R.id.tab_layout_main);
         mViewPager = (ViewPager) findViewById(R.id.view_pager_main);
@@ -40,7 +59,7 @@ public class MoneyEntryActivity extends AppCompatActivity {
         titles.add(getString(R.string.income));
         mTabLayout.addTab(mTabLayout.newTab().setText(titles.get(0)));
         mTabLayout.addTab(mTabLayout.newTab().setText(titles.get(1)));
-        
+
         List<Fragment> fragments = new ArrayList<>();
         fragments.add(new MoneyEntryFragment());
         fragments.add(new MoneyEntryFragment());

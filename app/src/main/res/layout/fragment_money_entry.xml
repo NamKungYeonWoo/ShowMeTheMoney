@@ -65,7 +65,7 @@
             android:layout_alignParentLeft="true"
             android:layout_marginBottom="4.0dip"
             android:layout_marginLeft="14.0dip"
-            android:src="@drawable/ic_category" />
+            android:src="@drawable/ic_action_labels" />
 
         <TextView
             android:id="@+id/textView33"
@@ -79,7 +79,7 @@
             android:background="#ffdddddd" />
 
         <TextView
-            android:id="@+id/textView7"
+            android:id="@+id/tvEntryType"
             android:layout_width="wrap_content"
             android:layout_height="30.0dip"
             android:layout_above="@id/textView33"
@@ -87,9 +87,9 @@
             android:layout_alignRight="@id/textView33"
             android:layout_marginBottom="4.0dip"
             android:gravity="center"
+            android:text="\?"
             android:textAppearance="?android:textAppearanceMedium"
-            android:textColor="#ff474747"
-            tools:text="식비" />
+            android:textColor="#ff474747" />
     </RelativeLayout>
 
     <RelativeLayout
