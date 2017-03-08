@@ -15,6 +15,7 @@ import android.widget.DatePicker;
 import android.widget.TextView;
 
 import com.zettafantasy.showmethemoney.R;
+import com.zettafantasy.showmethemoney.entity.MoneyEntry;
 
 import java.util.Calendar;
 import java.util.Locale;
@@ -24,7 +25,7 @@ import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
 /**
- * Created by uije on 17. 2. 15.
+ * Fragment for receiving money entry input from user
  */
 
 public class MoneyEntryFragment extends Fragment {
@@ -33,42 +34,43 @@ public class MoneyEntryFragment extends Fragment {
     private Unbinder unbinder;
 
     @BindView(R.id.tvPickDate)
-    TextView tvPickDate;
+    private TextView tvPickDate;
     @BindView(R.id.tvNumber1)
-    TextView tvNumber1;
+    private TextView tvNumber1;
     @BindView(R.id.tvNumber2)
-    TextView tvNumber2;
+    private TextView tvNumber2;
     @BindView(R.id.tvNumber3)
-    TextView tvNumber3;
+    private TextView tvNumber3;
     @BindView(R.id.tvNumber4)
-    TextView tvNumber4;
+    private TextView tvNumber4;
     @BindView(R.id.tvNumber5)
-    TextView tvNumber5;
+    private TextView tvNumber5;
     @BindView(R.id.tvNumber6)
-    TextView tvNumber6;
+    private TextView tvNumber6;
     @BindView(R.id.tvNumber7)
-    TextView tvNumber7;
+    private TextView tvNumber7;
     @BindView(R.id.tvNumber8)
-    TextView tvNumber8;
+    private TextView tvNumber8;
     @BindView(R.id.tvNumber9)
-    TextView tvNumber9;
+    private TextView tvNumber9;
     @BindView(R.id.tvNumber0)
-    TextView tvNumber0;
+    private TextView tvNumber0;
     @BindView(R.id.tvNumber00)
-    TextView tvNumber00;
+    private TextView tvNumber00;
     @BindView(R.id.tvNumberC)
-    TextView tvNumberC;
+    private TextView tvNumberC;
     @BindView(R.id.tvAmount)
-    TextView tvAmount;
+    private TextView tvAmount;
     @BindView(R.id.tvEntryType)
-    TextView tvEntryType;
+    private TextView tvEntryType;
 
     private final DecimalFormat currencyFormat = new DecimalFormat("#,###,###");
+
+    private MoneyEntry mMoneyEntry;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_money_entry, container, false);
         unbinder = ButterKnife.bind(this, view);
 
