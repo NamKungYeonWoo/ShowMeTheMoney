@@ -1,10 +1,10 @@
 apply plugin: 'com.android.application'
-
+apply plugin: 'android-apt' //TODO apt가 뭐냐 왜 annotationProcessor와 충돌이 나지?
 android {
     compileSdkVersion 25
     buildToolsVersion "25.0.2"
     defaultConfig {
-        applicationId "com.zettafantasy.visualhousekeepingbook"
+        applicationId "com.zettafantasy.showmethemoney"
         minSdkVersion 23
         targetSdkVersion 25
         versionCode 1
@@ -37,6 +37,9 @@ dependencies {
     compile 'com.github.BlacKCaT27:CurrencyEditText:v1.4.4' // edit text ext for currency
     compile 'info.hoang8f:android-segmented:1.0.6' // segmented-control
 
-    compile 'com.jakewharton:butterknife:8.5.1' // view binding
-    annotationProcessor 'com.jakewharton:butterknife-compiler:8.5.1'
+    compile 'com.jakewharton:butterknife:8.4.0' // view binding
+    apt 'com.jakewharton:butterknife-compiler:8.4.0'
+
+    compile 'net.simonvt.schematic:schematic:0.6.3' // db
+    apt 'net.simonvt.schematic:schematic-compiler:0.6.3'
 }

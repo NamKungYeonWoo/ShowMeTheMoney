@@ -1,4 +1,4 @@
-package com.zettafantasy.visualhousekeepingbook.custom;
+package com.zettafantasy.showmethemoney.custom;
 
 /**
  * Created by uije on 17. 2. 11.

@@ -1,11 +1,11 @@
-package com.zettafantasy.visualhousekeepingbook.notimportant;
+package com.zettafantasy.showmethemoney.notimportant;
 
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentActivity;
 
-import com.zettafantasy.visualhousekeepingbook.R;
+import com.zettafantasy.showmethemoney.R;
 
 
 /**

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">VisualHousekeepingBook</string>
+    <string name="app_name">ShowMeTheMoney</string>
     <string name="action_settings">Settings</string>
     <string name="hint_et_money">금액</string>
     <string name="hint_et_desc">설명</string>
@@ -21,6 +21,10 @@
     <string name="number_00">00</string>
     <string name="number_0">0</string>
     <string name="tvNumberClear">C</string>
+    <string name="_0">0</string>
+    <string name="default_entry_type">\?</string>
+    <string name="hint_et_entry_desc">상세 설명</string>
+    <string name="icon_for_entry_type">icon for entry type</string>
 
     <string-array name="expense_type">
         <item>식비</item>

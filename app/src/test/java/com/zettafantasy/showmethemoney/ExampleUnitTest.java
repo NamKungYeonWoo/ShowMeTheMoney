@@ -1,4 +1,4 @@
-package com.zettafantasy.visualhousekeepingbook;
+package com.zettafantasy.showmethemoney;
 
 import org.junit.Test;
 

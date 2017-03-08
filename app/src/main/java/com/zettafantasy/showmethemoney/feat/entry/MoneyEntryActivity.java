@@ -1,4 +1,4 @@
-package com.zettafantasy.visualhousekeepingbook;
+package com.zettafantasy.showmethemoney.feat.entry;
 
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
@@ -10,6 +10,9 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+
+import com.zettafantasy.showmethemoney.FragmentAdapter;
+import com.zettafantasy.showmethemoney.R;
 
 import java.util.ArrayList;
 import java.util.List;

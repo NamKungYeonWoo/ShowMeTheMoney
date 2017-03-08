@@ -1,4 +1,4 @@
-package com.zettafantasy.visualhousekeepingbook;
+package com.zettafantasy.showmethemoney;
 
 import android.os.Build;
 import android.widget.TextView;

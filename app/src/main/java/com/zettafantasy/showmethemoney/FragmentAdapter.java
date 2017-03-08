@@ -1,4 +1,4 @@
-package com.zettafantasy.visualhousekeepingbook;
+package com.zettafantasy.showmethemoney;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;

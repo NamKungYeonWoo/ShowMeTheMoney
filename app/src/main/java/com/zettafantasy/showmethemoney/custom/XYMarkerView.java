@@ -1,4 +1,4 @@
-package com.zettafantasy.visualhousekeepingbook.custom;
+package com.zettafantasy.showmethemoney.custom;
 
 
 import android.content.Context;
@@ -9,7 +9,7 @@ import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.formatter.IAxisValueFormatter;
 import com.github.mikephil.charting.highlight.Highlight;
 import com.github.mikephil.charting.utils.MPPointF;
-import com.zettafantasy.visualhousekeepingbook.R;
+import com.zettafantasy.showmethemoney.R;
 
 import java.text.DecimalFormat;
 

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.zettafantasy.visualhousekeepingbook">
+    package="com.zettafantasy.showmethemoney">
 
     <application
         android:allowBackup="true"
@@ -9,7 +9,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".MainActivity"
+            android:name="com.zettafantasy.showmethemoney.MainActivity"
             android:label="@string/app_name"
             android:launchMode="singleTop"
             android:theme="@style/AppTheme.NoActionBar">
@@ -19,12 +19,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".BarChartActivity" />
-        <activity android:name=".MoneyEntryActivity">
+        <activity android:name="com.zettafantasy.showmethemoney.BarChartActivity" />
+        <activity android:name="com.zettafantasy.showmethemoney.feat.entry.MoneyEntryActivity">
             <!-- Parent activity meta-data to support 4.0 and lower -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainActivity" />
+                android:value="com.zettafantasy.showmethemoney.MainActivity" />
         </activity>
     </application>
 

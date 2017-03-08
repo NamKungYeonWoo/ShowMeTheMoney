@@ -1,4 +1,4 @@
-package com.zettafantasy.visualhousekeepingbook;
+package com.zettafantasy.showmethemoney.feat.entry;
 
 import android.app.DatePickerDialog;
 import android.content.DialogInterface;
@@ -11,9 +11,10 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.DatePicker;
 import android.widget.TextView;
+
+import com.zettafantasy.showmethemoney.R;
 
 import java.util.Calendar;
 import java.util.Locale;
@@ -75,14 +76,6 @@ public class MoneyEntryFragment extends Fragment {
         initDatePicker();
         initEntryType();
 
-        // Create an ArrayAdapter using the string array and a default spinner layout
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getContext(),
-                R.array.expense_type, R.layout.custom_spinner_item);
-        // Specify the layout to use when the list of choices appears
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        // Apply the adapter to the spinner
-        //sEntryType.setAdapter(adapter);
-
         return view;
     }
 
@@ -90,7 +83,7 @@ public class MoneyEntryFragment extends Fragment {
         tvEntryType.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                final String[] singleChoiceItems = new String[]{"식비", "교통비", "유흥비", "회비", "쇼핑"};
+                final String[] singleChoiceItems = getResources().getStringArray(R.array.entry_expense_type);
                 int itemSelected = 0;
                 new AlertDialog.Builder(getContext())
                         .setTitle("타입")

@@ -10,8 +10,8 @@
         android:id="@+id/input1"
         android:layout_width="match_parent"
         android:layout_height="48.0dip"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentStart="true"
         android:layout_alignParentTop="true">
 
         <ImageView
@@ -19,9 +19,10 @@
             android:layout_width="30.0dip"
             android:layout_height="30.0dip"
             android:layout_alignParentBottom="true"
-            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
             android:layout_marginBottom="4.0dip"
-            android:layout_marginLeft="14.0dip"
+            android:layout_marginStart="14.0dip"
+            android:contentDescription="@string/icon_for_date_picker"
             android:src="@drawable/ic_date_range_black_24dp" />
 
         <TextView
@@ -29,10 +30,10 @@
             android:layout_width="wrap_content"
             android:layout_height="1.0px"
             android:layout_alignParentBottom="true"
-            android:layout_alignParentRight="true"
-            android:layout_marginLeft="14.0dip"
-            android:layout_marginRight="14.0dip"
-            android:layout_toRightOf="@id/imageView1"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="14.0dip"
+            android:layout_marginStart="14.0dip"
+            android:layout_toEndOf="@id/imageView1"
             android:background="#ffdddddd" />
 
         <TextView
@@ -40,8 +41,8 @@
             android:layout_width="wrap_content"
             android:layout_height="30.0dip"
             android:layout_above="@id/textView3"
-            android:layout_alignLeft="@id/textView3"
-            android:layout_alignRight="@id/textView3"
+            android:layout_alignEnd="@id/textView3"
+            android:layout_alignStart="@id/textView3"
             android:layout_marginBottom="4.0dip"
             android:gravity="center"
             android:textAppearance="?android:textAppearanceMedium"
@@ -53,8 +54,8 @@
         android:id="@+id/input2"
         android:layout_width="match_parent"
         android:layout_height="50.0dip"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentStart="true"
         android:layout_below="@id/input1">
 
         <ImageView
@@ -62,9 +63,10 @@
             android:layout_width="30.0dip"
             android:layout_height="30.0dip"
             android:layout_alignParentBottom="true"
-            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
             android:layout_marginBottom="4.0dip"
-            android:layout_marginLeft="14.0dip"
+            android:layout_marginStart="14.0dip"
+            android:contentDescription="@string/icon_for_entry_type"
             android:src="@drawable/ic_action_labels" />
 
         <TextView
@@ -72,10 +74,10 @@
             android:layout_width="wrap_content"
             android:layout_height="1.0px"
             android:layout_alignParentBottom="true"
-            android:layout_alignParentRight="true"
-            android:layout_marginLeft="14.0dip"
-            android:layout_marginRight="14.0dip"
-            android:layout_toRightOf="@id/imageView11"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="14.0dip"
+            android:layout_marginStart="14.0dip"
+            android:layout_toEndOf="@id/imageView11"
             android:background="#ffdddddd" />
 
         <TextView
@@ -83,11 +85,11 @@
             android:layout_width="wrap_content"
             android:layout_height="30.0dip"
             android:layout_above="@id/textView33"
-            android:layout_alignLeft="@id/textView33"
-            android:layout_alignRight="@id/textView33"
+            android:layout_alignEnd="@id/textView33"
+            android:layout_alignStart="@id/textView33"
             android:layout_marginBottom="4.0dip"
             android:gravity="center"
-            android:text="\?"
+            android:text="@string/default_entry_type"
             android:textAppearance="?android:textAppearanceMedium"
             android:textColor="#ff474747" />
     </RelativeLayout>
@@ -96,8 +98,8 @@
         android:id="@+id/input22"
         android:layout_width="match_parent"
         android:layout_height="70.0dip"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentStart="true"
         android:layout_below="@id/input2">
 
         <ImageView
@@ -105,9 +107,10 @@
             android:layout_width="30.0dip"
             android:layout_height="30.0dip"
             android:layout_alignParentBottom="true"
-            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
             android:layout_marginBottom="4.0dip"
-            android:layout_marginLeft="14.0dip"
+            android:layout_marginStart="14.0dip"
+            android:contentDescription="@string/icon_for_description"
             android:src="@drawable/ic_description_black_24dp" />
 
         <TextView
@@ -115,21 +118,21 @@
             android:layout_width="wrap_content"
             android:layout_height="1.0px"
             android:layout_alignParentBottom="true"
-            android:layout_alignParentRight="true"
-            android:layout_marginLeft="14.0dip"
-            android:layout_marginRight="14.0dip"
-            android:layout_toRightOf="@id/imageView1111"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="14.0dip"
+            android:layout_marginStart="14.0dip"
+            android:layout_toEndOf="@id/imageView1111"
             android:background="#ffdddddd" />
 
         <EditText
-            android:id="@+id/textView6666"
+            android:id="@+id/etEntryDesc"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_above="@id/textView3333"
-            android:layout_alignLeft="@id/textView3333"
-            android:layout_alignRight="@id/textView3333"
+            android:layout_alignEnd="@id/textView3333"
+            android:layout_alignStart="@id/textView3333"
             android:gravity="center"
-            android:hint="상세 설명"
+            android:hint="@string/hint_et_entry_desc"
             android:inputType="textMultiLine"
             android:lines="2"
             android:maxLines="2"
@@ -142,8 +145,8 @@
         android:id="@+id/input3"
         android:layout_width="match_parent"
         android:layout_height="48.0dip"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentStart="true"
         android:layout_below="@id/input22">
 
         <ImageView
@@ -151,9 +154,10 @@
             android:layout_width="30.0dip"
             android:layout_height="30.0dip"
             android:layout_alignParentBottom="true"
-            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
             android:layout_marginBottom="4.0dip"
-            android:layout_marginLeft="14.0dip"
+            android:layout_marginStart="14.0dip"
+            android:contentDescription="@string/icon_for_money"
             android:src="@drawable/ic_currency" />
 
         <TextView
@@ -161,10 +165,10 @@
             android:layout_width="wrap_content"
             android:layout_height="1.0px"
             android:layout_alignParentBottom="true"
-            android:layout_alignParentRight="true"
-            android:layout_marginLeft="14.0dip"
-            android:layout_marginRight="14.0dip"
-            android:layout_toRightOf="@id/imageView111"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="14.0dip"
+            android:layout_marginStart="14.0dip"
+            android:layout_toEndOf="@id/imageView111"
             android:background="#ffdddddd" />
 
         <TextView
@@ -172,11 +176,11 @@
             android:layout_width="wrap_content"
             android:layout_height="30.0dip"
             android:layout_above="@id/textView333"
-            android:layout_alignLeft="@id/textView333"
-            android:layout_alignRight="@id/textView333"
+            android:layout_alignEnd="@id/textView333"
+            android:layout_alignStart="@id/textView333"
             android:layout_marginBottom="4.0dip"
             android:gravity="center"
-            android:text="0"
+            android:text="@string/_0"
             android:textAppearance="?android:textAppearanceMedium"
             android:textColor="#ff474747" />
     </RelativeLayout>
@@ -185,8 +189,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentStart="true"
         android:layout_below="@id/input3"
         android:orientation="vertical">
 
@@ -205,7 +209,8 @@
                 android:text="@string/number_1"
                 android:textAppearance="?android:textAppearanceLarge"
                 android:textColor="#ff474747"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                tools:ignore="NestedWeights" />
 
             <TextView
                 android:id="@+id/tvNumber2"
@@ -244,7 +249,8 @@
                 android:text="@string/number_4"
                 android:textAppearance="?android:textAppearanceLarge"
                 android:textColor="#ff474747"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                tools:ignore="NestedWeights" />
 
             <TextView
                 android:id="@+id/tvNumber5"
@@ -283,7 +289,8 @@
                 android:text="@string/number_7"
                 android:textAppearance="?android:textAppearanceLarge"
                 android:textColor="#ff474747"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                tools:ignore="NestedWeights" />
 
             <TextView
                 android:id="@+id/tvNumber8"
@@ -322,7 +329,8 @@
                 android:text="@string/number_00"
                 android:textAppearance="?android:textAppearanceLarge"
                 android:textColor="#ff474747"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                tools:ignore="NestedWeights" />
 
             <TextView
                 android:id="@+id/tvNumber0"

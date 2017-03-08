@@ -1,9 +1,8 @@
-package com.zettafantasy.visualhousekeepingbook;
+package com.zettafantasy.showmethemoney;
 
 import android.annotation.SuppressLint;
 import android.graphics.RectF;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -32,10 +31,10 @@ import com.github.mikephil.charting.interfaces.datasets.IDataSet;
 import com.github.mikephil.charting.listener.OnChartValueSelectedListener;
 import com.github.mikephil.charting.utils.ColorTemplate;
 import com.github.mikephil.charting.utils.MPPointF;
-import com.zettafantasy.visualhousekeepingbook.custom.DayAxisValueFormatter;
-import com.zettafantasy.visualhousekeepingbook.custom.MyAxisValueFormatter;
-import com.zettafantasy.visualhousekeepingbook.custom.XYMarkerView;
-import com.zettafantasy.visualhousekeepingbook.notimportant.DemoBase;
+import com.zettafantasy.showmethemoney.custom.DayAxisValueFormatter;
+import com.zettafantasy.showmethemoney.custom.MyAxisValueFormatter;
+import com.zettafantasy.showmethemoney.custom.XYMarkerView;
+import com.zettafantasy.showmethemoney.notimportant.DemoBase;
 
 import java.util.ArrayList;
 
