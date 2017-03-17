@@ -1,25 +1,29 @@
 package com.zettafantasy.showmethemoney.feat.entry;
 
+import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 
 import com.zettafantasy.showmethemoney.FragmentAdapter;
 import com.zettafantasy.showmethemoney.R;
+import com.zettafantasy.showmethemoney.entity.MoneyEntry;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class MoneyEntryActivity extends AppCompatActivity {
+    private static final String TAG = MoneyEntryActivity.class.getSimpleName();
     private TabLayout mTabLayout;
     private ViewPager mViewPager;
+    private int mCurPagePos;
+    FragmentAdapter mFragmentAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +51,11 @@ public class MoneyEntryActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         if (id == R.id.action_save) {
+//            MoneyEntryFragment fragment = (MoneyEntryFragment) mFragmentAdapter.getItem(mCurPagePos);
+//            MoneyEntry moneyEntry = fragment.getMoneyEntry();
+//
+//            Log.v(TAG, moneyEntry.toString());
+
             return true;
         }
 
@@ -69,7 +78,7 @@ public class MoneyEntryActivity extends AppCompatActivity {
 
         mViewPager.setOffscreenPageLimit(1);
 
-        FragmentAdapter mFragmentAdapter = new FragmentAdapter(getSupportFragmentManager(), fragments, titles);
+        mFragmentAdapter = new FragmentAdapter(getSupportFragmentManager(), fragments, titles);
         mViewPager.setAdapter(mFragmentAdapter);
         mTabLayout.setupWithViewPager(mViewPager);
 
@@ -80,6 +89,7 @@ public class MoneyEntryActivity extends AppCompatActivity {
 
             @Override
             public void onPageSelected(int position) {
+                mCurPagePos = position;
             }
 
             @Override
@@ -87,8 +97,5 @@ public class MoneyEntryActivity extends AppCompatActivity {
 
             }
         });
-    }
-
-    public void onNumberClick(View view) {
     }
 }

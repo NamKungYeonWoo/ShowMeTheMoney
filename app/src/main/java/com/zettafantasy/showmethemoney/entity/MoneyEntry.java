@@ -62,7 +62,7 @@ public class MoneyEntry {
         this._id = _id;
     }
 
-    enum Type {
+    public enum Type {
         EXPENSE(0), INCOME(1);
 
         private Type(int value) {

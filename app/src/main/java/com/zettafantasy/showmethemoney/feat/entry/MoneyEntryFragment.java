@@ -12,11 +12,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.DatePicker;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import com.zettafantasy.showmethemoney.R;
 import com.zettafantasy.showmethemoney.entity.MoneyEntry;
 
+import java.text.ParseException;
 import java.util.Calendar;
 import java.util.Locale;
 
@@ -34,66 +36,98 @@ public class MoneyEntryFragment extends Fragment {
     private Unbinder unbinder;
 
     @BindView(R.id.tvPickDate)
-    private TextView tvPickDate;
+    TextView tvPickDate;
+
     @BindView(R.id.tvNumber1)
-    private TextView tvNumber1;
+    TextView tvNumber1;
     @BindView(R.id.tvNumber2)
-    private TextView tvNumber2;
+    TextView tvNumber2;
     @BindView(R.id.tvNumber3)
-    private TextView tvNumber3;
+    TextView tvNumber3;
     @BindView(R.id.tvNumber4)
-    private TextView tvNumber4;
+    TextView tvNumber4;
     @BindView(R.id.tvNumber5)
-    private TextView tvNumber5;
+    TextView tvNumber5;
     @BindView(R.id.tvNumber6)
-    private TextView tvNumber6;
+    TextView tvNumber6;
     @BindView(R.id.tvNumber7)
-    private TextView tvNumber7;
+    TextView tvNumber7;
     @BindView(R.id.tvNumber8)
-    private TextView tvNumber8;
+    TextView tvNumber8;
     @BindView(R.id.tvNumber9)
-    private TextView tvNumber9;
+    TextView tvNumber9;
     @BindView(R.id.tvNumber0)
-    private TextView tvNumber0;
+    TextView tvNumber0;
     @BindView(R.id.tvNumber00)
-    private TextView tvNumber00;
+    TextView tvNumber00;
     @BindView(R.id.tvNumberC)
-    private TextView tvNumberC;
+    TextView tvNumberC;
+
     @BindView(R.id.tvAmount)
-    private TextView tvAmount;
+    TextView tvAmount;
     @BindView(R.id.tvEntryType)
-    private TextView tvEntryType;
+    TextView tvEntrySubType;
+    @BindView(R.id.etEntryDesc)
+    EditText etMemo;
 
     private final DecimalFormat currencyFormat = new DecimalFormat("#,###,###");
 
-    private MoneyEntry mMoneyEntry;
+    public MoneyEntry getMoneyEntry() {
+        MoneyEntry moneyEntry = new MoneyEntry();
+        moneyEntry.setType(null);
+
+        // get amount
+        try {
+            Number number = currencyFormat.parse(tvAmount.getText().toString());
+            moneyEntry.setAmount(number.longValue());
+        } catch (ParseException e) {
+            e.printStackTrace();
+            Log.e(TAG, e.getLocalizedMessage());
+            return null;
+        }
+
+        moneyEntry.setSubType((int) tvEntrySubType.getTag());
+        moneyEntry.setMemo(etMemo.getText().toString());
+
+        return moneyEntry;
+    }
 
     @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container,
+                             @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_money_entry, container, false);
         unbinder = ButterKnife.bind(this, view);
+        return view;
+    }
+
+    @Override
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
 
         initNumberPad();
         initDatePicker();
         initEntryType();
-
-        return view;
     }
 
     private void initEntryType() {
-        tvEntryType.setOnClickListener(new View.OnClickListener() {
+        tvEntrySubType.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 final String[] singleChoiceItems = getResources().getStringArray(R.array.entry_expense_type);
-                int itemSelected = 0;
+                final int itemSelected = 0;
+
+                tvEntrySubType.setText(singleChoiceItems[itemSelected]);
+                tvEntrySubType.setTag(itemSelected);
+
                 new AlertDialog.Builder(getContext())
                         .setTitle("타입")
                         .setSingleChoiceItems(singleChoiceItems, itemSelected, new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
                                 dialogInterface.dismiss();
-                                tvEntryType.setText(singleChoiceItems[i]);
+                                tvEntrySubType.setText(singleChoiceItems[i]);
+                                tvEntrySubType.setTag(itemSelected);
                             }
                         })
                         .setNegativeButton("CANCEL", null)
@@ -207,9 +241,9 @@ public class MoneyEntryFragment extends Fragment {
         tvNumberC.setOnClickListener(onClickNumberPadListener);
     }
 
-    @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-        unbinder.unbind();
-    }
+//    @Override
+//    public void onDestroyView() {
+//        super.onDestroyView();
+//        unbinder.unbind();
+//    }
 }
