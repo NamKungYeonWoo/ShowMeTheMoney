@@ -33,13 +33,11 @@ dependencies {
 
     compile 'com.github.PhilJay:MPAndroidChart:v3.0.1' // graph
 
-    //ui
-    compile 'com.github.BlacKCaT27:CurrencyEditText:v1.4.4' // edit text ext for currency
-    compile 'info.hoang8f:android-segmented:1.0.6' // segmented-control
-
     compile 'com.jakewharton:butterknife:8.4.0' // view binding
     apt 'com.jakewharton:butterknife-compiler:8.4.0'
 
     compile 'net.simonvt.schematic:schematic:0.6.3' // db
     apt 'net.simonvt.schematic:schematic-compiler:0.6.3'
+
+    compile "com.google.guava:guava:$rootProject.guavaVersion"
 }

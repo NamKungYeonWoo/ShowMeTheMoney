@@ -21,6 +21,7 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 
+import com.zettafantasy.showmethemoney.ActivityUtils;
 import com.zettafantasy.showmethemoney.R;
 
 /**
@@ -61,8 +62,8 @@ public class AddEditMoneyEntryActivity extends AppCompatActivity {
 //                actionBar.setTitle(R.string.add_task);
 //            }
 //
-//            ActivityUtils.addFragmentToActivity(getSupportFragmentManager(),
-//                    addEditTaskFragment, R.id.contentFrame);
+            ActivityUtils.addFragmentToActivity(getSupportFragmentManager(),
+                    addEditMoneyEntryFragment, R.id.contentFrame);
 //        }
 //
 //        boolean shouldLoadDataFromRepo = true;
@@ -81,11 +82,12 @@ public class AddEditMoneyEntryActivity extends AppCompatActivity {
 //                shouldLoadDataFromRepo);
 //
 //        addEditTaskFragment.setPresenter(mAddEditTaskPresenter);
+        }
     }
 
-    @Override
-    public boolean onSupportNavigateUp() {
-        onBackPressed();
-        return true;
-    }
+//    @Override
+//    public boolean onSupportNavigateUp() {
+//        onBackPressed();
+//        return true;
+//    }
 }
