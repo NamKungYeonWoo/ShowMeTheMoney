@@ -15,7 +15,7 @@
         android:layout_alignParentTop="true">
 
         <ImageView
-            android:id="@+id/imageView1"
+            android:id="@+id/iconDate"
             android:layout_width="30.0dip"
             android:layout_height="30.0dip"
             android:layout_alignParentBottom="true"
@@ -26,23 +26,23 @@
             android:src="@drawable/ic_date_range_black_24dp" />
 
         <TextView
-            android:id="@+id/textView3"
+            android:id="@+id/lineDate"
             android:layout_width="wrap_content"
             android:layout_height="1.0px"
             android:layout_alignParentBottom="true"
             android:layout_alignParentEnd="true"
             android:layout_marginEnd="14.0dip"
             android:layout_marginStart="14.0dip"
-            android:layout_toEndOf="@id/imageView1"
+            android:layout_toEndOf="@id/iconDate"
             android:background="#ffdddddd" />
 
         <TextView
-            android:id="@+id/tvPickDate"
+            android:id="@+id/tvDate"
             android:layout_width="wrap_content"
             android:layout_height="30.0dip"
-            android:layout_above="@id/textView3"
-            android:layout_alignEnd="@id/textView3"
-            android:layout_alignStart="@id/textView3"
+            android:layout_above="@id/lineDate"
+            android:layout_alignEnd="@id/lineDate"
+            android:layout_alignStart="@id/lineDate"
             android:layout_marginBottom="4.0dip"
             android:gravity="center"
             android:textAppearance="?android:textAppearanceMedium"
@@ -89,7 +89,7 @@
             android:layout_alignStart="@id/textView33"
             android:layout_marginBottom="4.0dip"
             android:gravity="center"
-            android:text="@string/default_entry_type"
+            tools:text="@string/default_entry_type"
             android:textAppearance="?android:textAppearanceMedium"
             android:textColor="#ff474747" />
     </RelativeLayout>
@@ -208,7 +208,7 @@
                 android:layout_weight="1.0"
                 android:clickable="true"
                 android:foreground="?android:attr/selectableItemBackground"
-                card_view:cardCornerRadius="8dp"
+                card_view:cardCornerRadius="@dimen/number_pad_corner_radius"
                 card_view:cardElevation="@dimen/number_pad_elevation">
 
                 <TextView
@@ -230,7 +230,7 @@
                 android:layout_weight="1.0"
                 android:clickable="true"
                 android:foreground="?android:attr/selectableItemBackground"
-                card_view:cardCornerRadius="8dp"
+                card_view:cardCornerRadius="@dimen/number_pad_corner_radius"
                 card_view:cardElevation="@dimen/number_pad_elevation">
 
                 <TextView
@@ -252,7 +252,7 @@
                 android:layout_weight="1.0"
                 android:clickable="true"
                 android:foreground="?android:attr/selectableItemBackground"
-                card_view:cardCornerRadius="8dp"
+                card_view:cardCornerRadius="@dimen/number_pad_corner_radius"
                 card_view:cardElevation="@dimen/number_pad_elevation">
 
                 <TextView
@@ -281,7 +281,7 @@
                 android:layout_weight="1.0"
                 android:clickable="true"
                 android:foreground="?android:attr/selectableItemBackground"
-                card_view:cardCornerRadius="8dp"
+                card_view:cardCornerRadius="@dimen/number_pad_corner_radius"
                 card_view:cardElevation="@dimen/number_pad_elevation">
 
                 <TextView
@@ -303,7 +303,7 @@
                 android:layout_weight="1.0"
                 android:clickable="true"
                 android:foreground="?android:attr/selectableItemBackground"
-                card_view:cardCornerRadius="8dp"
+                card_view:cardCornerRadius="@dimen/number_pad_corner_radius"
                 card_view:cardElevation="@dimen/number_pad_elevation">
 
                 <TextView
@@ -325,7 +325,7 @@
                 android:layout_weight="1.0"
                 android:clickable="true"
                 android:foreground="?android:attr/selectableItemBackground"
-                card_view:cardCornerRadius="8dp"
+                card_view:cardCornerRadius="@dimen/number_pad_corner_radius"
                 card_view:cardElevation="@dimen/number_pad_elevation">
 
                 <TextView
@@ -354,7 +354,7 @@
                 android:layout_weight="1.0"
                 android:clickable="true"
                 android:foreground="?android:attr/selectableItemBackground"
-                card_view:cardCornerRadius="8dp"
+                card_view:cardCornerRadius="@dimen/number_pad_corner_radius"
                 card_view:cardElevation="@dimen/number_pad_elevation">
 
                 <TextView
@@ -376,7 +376,7 @@
                 android:layout_weight="1.0"
                 android:clickable="true"
                 android:foreground="?android:attr/selectableItemBackground"
-                card_view:cardCornerRadius="8dp"
+                card_view:cardCornerRadius="@dimen/number_pad_corner_radius"
                 card_view:cardElevation="@dimen/number_pad_elevation">
 
                 <TextView
@@ -398,7 +398,7 @@
                 android:layout_weight="1.0"
                 android:clickable="true"
                 android:foreground="?android:attr/selectableItemBackground"
-                card_view:cardCornerRadius="8dp"
+                card_view:cardCornerRadius="@dimen/number_pad_corner_radius"
                 card_view:cardElevation="@dimen/number_pad_elevation">
 
                 <TextView
@@ -427,7 +427,7 @@
                 android:layout_weight="1.0"
                 android:clickable="true"
                 android:foreground="?android:attr/selectableItemBackground"
-                card_view:cardCornerRadius="8dp"
+                card_view:cardCornerRadius="@dimen/number_pad_corner_radius"
                 card_view:cardElevation="@dimen/number_pad_elevation">
 
                 <TextView
@@ -449,7 +449,7 @@
                 android:layout_weight="1.0"
                 android:clickable="true"
                 android:foreground="?android:attr/selectableItemBackground"
-                card_view:cardCornerRadius="8dp"
+                card_view:cardCornerRadius="@dimen/number_pad_corner_radius"
                 card_view:cardElevation="@dimen/number_pad_elevation">
 
                 <TextView
@@ -472,7 +472,7 @@
                 android:layout_weight="1.0"
                 android:clickable="true"
                 android:foreground="?android:attr/selectableItemBackground"
-                card_view:cardCornerRadius="8dp"
+                card_view:cardCornerRadius="@dimen/number_pad_corner_radius"
                 card_view:cardElevation="@dimen/number_pad_elevation">
 
                 <TextView

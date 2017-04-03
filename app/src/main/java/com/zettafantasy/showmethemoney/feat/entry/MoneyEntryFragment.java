@@ -35,7 +35,7 @@ public class MoneyEntryFragment extends Fragment {
     private static final String TAG = MoneyEntryFragment.class.getSimpleName();
     private Unbinder unbinder;
 
-    @BindView(R.id.tvPickDate)
+    @BindView(R.id.tvDate)
     TextView tvPickDate;
 
     @BindView(R.id.tvNumber1)

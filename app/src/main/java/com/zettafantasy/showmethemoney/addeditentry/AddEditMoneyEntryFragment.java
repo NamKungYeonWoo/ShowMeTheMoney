@@ -1,16 +1,23 @@
 package com.zettafantasy.showmethemoney.addeditentry;
 
+import android.app.DatePickerDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.DatePicker;
 import android.widget.TextView;
 
 import com.zettafantasy.showmethemoney.R;
 import com.zettafantasy.showmethemoney.StringUtils;
 import com.zettafantasy.showmethemoney.entity.MoneyEntry;
+
+import java.util.Calendar;
+import java.util.Locale;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -53,6 +60,15 @@ public class AddEditMoneyEntryFragment extends Fragment implements AddEditMoneyE
     private Unbinder unbinder;
     private long mAmount = 0;
 
+    @BindView(R.id.tvDate)
+    TextView mTvDate;
+    Calendar mCalendar;
+
+    @BindView(R.id.tvEntryType)
+    TextView tvEntrySubType;
+    int subTypeIndex; // TOD def 설정하기
+    private String[] SUBTYPE_TEXT_LIST;
+
     public static AddEditMoneyEntryFragment newInstance() {
         return new AddEditMoneyEntryFragment();
     }
@@ -63,13 +79,35 @@ public class AddEditMoneyEntryFragment extends Fragment implements AddEditMoneyE
     }
 
     @Override
-    public void setDate(String date) {
+    public void setDate(long date) {
+        mCalendar.setTimeInMillis(date);
+        setDate(mCalendar);
+    }
 
+    private void setDate(Calendar mCalendar) {
+        String formattedDate = String.format(Locale.KOREAN, "%04d.%02d.%02d",
+                mCalendar.get(Calendar.YEAR),
+                mCalendar.get(Calendar.MONTH) + 1,
+                mCalendar.get(Calendar.DAY_OF_MONTH));
+        mTvDate.setText(formattedDate);
     }
 
     @Override
     public void launchDatePicker() {
-
+        new DatePickerDialog(
+                getContext(),
+                R.style.AppTheme_DatePicker,
+                new DatePickerDialog.OnDateSetListener() {
+                    @Override
+                    public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+                        mCalendar.set(year, month, dayOfMonth);
+                        setDate(mCalendar);
+                    }
+                },
+                mCalendar.get(Calendar.YEAR),
+                mCalendar.get(Calendar.MONTH),
+                mCalendar.get(Calendar.DAY_OF_MONTH))
+                .show();
     }
 
     @Override
@@ -79,12 +117,23 @@ public class AddEditMoneyEntryFragment extends Fragment implements AddEditMoneyE
 
     @Override
     public void setSubType(int subType) {
-
+        subTypeIndex = subType;
+        tvEntrySubType.setText(SUBTYPE_TEXT_LIST[subTypeIndex]);
     }
 
     @Override
     public void launchSubtypePicker() {
-
+        new AlertDialog.Builder(getContext())
+                .setTitle("타입")
+                .setSingleChoiceItems(SUBTYPE_TEXT_LIST, subTypeIndex, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        dialogInterface.dismiss();
+                        setSubType(i);
+                    }
+                })
+                .setNegativeButton("CANCEL", null)
+                .show();
     }
 
     @Override
@@ -94,7 +143,8 @@ public class AddEditMoneyEntryFragment extends Fragment implements AddEditMoneyE
 
     @Override
     public void setAmount(long amount) {
-
+        mAmount = amount;
+        mTvAmount.setText(StringUtils.makeNumberComma(mAmount));
     }
 
     @Override
@@ -120,7 +170,32 @@ public class AddEditMoneyEntryFragment extends Fragment implements AddEditMoneyE
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
+        initDatePicker();
         initNumberPad();
+        initEntrySubType();
+    }
+
+    private void initEntrySubType() {
+        SUBTYPE_TEXT_LIST = getResources().getStringArray(R.array.entry_expense_type);
+        setSubType(0);
+        tvEntrySubType.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                launchSubtypePicker();
+            }
+        });
+    }
+
+    private void initDatePicker() {
+        mCalendar = Calendar.getInstance();
+        setDate(mCalendar);
+
+        mTvDate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                launchDatePicker();
+            }
+        });
     }
 
     private void initNumberPad() {
@@ -140,8 +215,7 @@ public class AddEditMoneyEntryFragment extends Fragment implements AddEditMoneyE
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        mAmount = (mAmount == 0 ? 0 : mAmount * 100);
-                        mTvAmount.setText(StringUtils.makeNumberComma(mAmount));
+                        setAmount(mAmount == 0 ? 0 : mAmount * 100);
                     }
                 }
         );
@@ -149,8 +223,7 @@ public class AddEditMoneyEntryFragment extends Fragment implements AddEditMoneyE
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        mAmount = 0;
-                        mTvAmount.setText(StringUtils.makeNumberComma(mAmount));
+                        setAmount(0);
                     }
                 }
         );
@@ -171,8 +244,7 @@ public class AddEditMoneyEntryFragment extends Fragment implements AddEditMoneyE
 
         @Override
         public void onClick(View v) {
-            mAmount = (mAmount == 0 ? number : mAmount * 10 + number);
-            mTvAmount.setText(StringUtils.makeNumberComma(mAmount));
+            setAmount(mAmount == 0 ? number : mAmount * 10 + number);
         }
     }
 }

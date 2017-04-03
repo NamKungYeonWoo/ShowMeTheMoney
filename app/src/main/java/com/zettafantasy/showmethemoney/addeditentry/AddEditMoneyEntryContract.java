@@ -26,7 +26,7 @@ import com.zettafantasy.showmethemoney.entity.MoneyEntry;
 public interface AddEditMoneyEntryContract {
 
     interface View extends BaseView<Presenter> {
-        void setDate(String date); //TODO 어떤 타입으로 저장해야 좋은지 모르겠음(후보 long)
+        void setDate(long date); //TODO 어떤 타입으로 저장해야 좋은지 모르겠음(후보 long)
 
         void launchDatePicker();
 
