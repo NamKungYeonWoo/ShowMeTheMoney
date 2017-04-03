@@ -185,7 +185,7 @@
             android:textColor="#ff474747" />
     </RelativeLayout>
 
-    <LinearLayout
+    <LinearLayout xmlns:card_view="http://schemas.android.com/apk/res-auto"
         android:id="@+id/vgDialPad"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -200,40 +200,72 @@
             android:layout_height="0.0dip"
             android:layout_weight="1.0">
 
-            <TextView
+            <android.support.v7.widget.CardView
                 android:id="@+id/tvNumber1"
                 android:layout_width="0.0dip"
                 android:layout_height="match_parent"
-                android:layout_gravity="center"
+                android:layout_margin="@dimen/number_pad_margin"
                 android:layout_weight="1.0"
-                android:gravity="center"
-                android:text="@string/number_1"
-                android:textAppearance="?android:textAppearanceLarge"
-                android:textColor="#ff474747"
-                android:textStyle="bold"
-                tools:ignore="NestedWeights" />
+                android:clickable="true"
+                android:foreground="?android:attr/selectableItemBackground"
+                card_view:cardCornerRadius="8dp"
+                card_view:cardElevation="@dimen/number_pad_elevation">
 
-            <TextView
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="@string/number_1"
+                    android:textAppearance="?android:textAppearanceLarge"
+                    android:textColor="#ff474747"
+                    android:textStyle="bold"
+                    tools:ignore="NestedWeights" />
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
                 android:id="@+id/tvNumber2"
                 android:layout_width="0.0dip"
                 android:layout_height="match_parent"
+                android:layout_margin="@dimen/number_pad_margin"
                 android:layout_weight="1.0"
-                android:gravity="center"
-                android:text="@string/number_2"
-                android:textAppearance="?android:textAppearanceLarge"
-                android:textColor="#ff474747"
-                android:textStyle="bold" />
+                android:clickable="true"
+                android:foreground="?android:attr/selectableItemBackground"
+                card_view:cardCornerRadius="8dp"
+                card_view:cardElevation="@dimen/number_pad_elevation">
 
-            <TextView
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="@string/number_2"
+                    android:textAppearance="?android:textAppearanceLarge"
+                    android:textColor="#ff474747"
+                    android:textStyle="bold"
+                    tools:ignore="NestedWeights" />
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
                 android:id="@+id/tvNumber3"
                 android:layout_width="0.0dip"
                 android:layout_height="match_parent"
+                android:layout_margin="@dimen/number_pad_margin"
                 android:layout_weight="1.0"
-                android:gravity="center"
-                android:text="@string/number_3"
-                android:textAppearance="?android:textAppearanceLarge"
-                android:textColor="#ff474747"
-                android:textStyle="bold" />
+                android:clickable="true"
+                android:foreground="?android:attr/selectableItemBackground"
+                card_view:cardCornerRadius="8dp"
+                card_view:cardElevation="@dimen/number_pad_elevation">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="@string/number_3"
+                    android:textAppearance="?android:textAppearanceLarge"
+                    android:textColor="#ff474747"
+                    android:textStyle="bold"
+                    tools:ignore="NestedWeights" />
+            </android.support.v7.widget.CardView>
+
         </LinearLayout>
 
         <LinearLayout
@@ -241,39 +273,72 @@
             android:layout_height="0.0dip"
             android:layout_weight="1.0">
 
-            <TextView
+            <android.support.v7.widget.CardView
                 android:id="@+id/tvNumber4"
                 android:layout_width="0.0dip"
                 android:layout_height="match_parent"
+                android:layout_margin="@dimen/number_pad_margin"
                 android:layout_weight="1.0"
-                android:gravity="center"
-                android:text="@string/number_4"
-                android:textAppearance="?android:textAppearanceLarge"
-                android:textColor="#ff474747"
-                android:textStyle="bold"
-                tools:ignore="NestedWeights" />
+                android:clickable="true"
+                android:foreground="?android:attr/selectableItemBackground"
+                card_view:cardCornerRadius="8dp"
+                card_view:cardElevation="@dimen/number_pad_elevation">
 
-            <TextView
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="@string/number_4"
+                    android:textAppearance="?android:textAppearanceLarge"
+                    android:textColor="#ff474747"
+                    android:textStyle="bold"
+                    tools:ignore="NestedWeights" />
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
                 android:id="@+id/tvNumber5"
                 android:layout_width="0.0dip"
                 android:layout_height="match_parent"
+                android:layout_margin="@dimen/number_pad_margin"
                 android:layout_weight="1.0"
-                android:gravity="center"
-                android:text="@string/number_5"
-                android:textAppearance="?android:textAppearanceLarge"
-                android:textColor="#ff474747"
-                android:textStyle="bold" />
+                android:clickable="true"
+                android:foreground="?android:attr/selectableItemBackground"
+                card_view:cardCornerRadius="8dp"
+                card_view:cardElevation="@dimen/number_pad_elevation">
 
-            <TextView
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="@string/number_5"
+                    android:textAppearance="?android:textAppearanceLarge"
+                    android:textColor="#ff474747"
+                    android:textStyle="bold"
+                    tools:ignore="NestedWeights" />
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
                 android:id="@+id/tvNumber6"
                 android:layout_width="0.0dip"
                 android:layout_height="match_parent"
+                android:layout_margin="@dimen/number_pad_margin"
                 android:layout_weight="1.0"
-                android:gravity="center"
-                android:text="@string/number_6"
-                android:textAppearance="?android:textAppearanceLarge"
-                android:textColor="#ff474747"
-                android:textStyle="bold" />
+                android:clickable="true"
+                android:foreground="?android:attr/selectableItemBackground"
+                card_view:cardCornerRadius="8dp"
+                card_view:cardElevation="@dimen/number_pad_elevation">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="@string/number_6"
+                    android:textAppearance="?android:textAppearanceLarge"
+                    android:textColor="#ff474747"
+                    android:textStyle="bold"
+                    tools:ignore="NestedWeights" />
+            </android.support.v7.widget.CardView>
+
         </LinearLayout>
 
         <LinearLayout
@@ -281,39 +346,72 @@
             android:layout_height="0.0dip"
             android:layout_weight="1.0">
 
-            <TextView
+            <android.support.v7.widget.CardView
                 android:id="@+id/tvNumber7"
                 android:layout_width="0.0dip"
                 android:layout_height="match_parent"
+                android:layout_margin="@dimen/number_pad_margin"
                 android:layout_weight="1.0"
-                android:gravity="center"
-                android:text="@string/number_7"
-                android:textAppearance="?android:textAppearanceLarge"
-                android:textColor="#ff474747"
-                android:textStyle="bold"
-                tools:ignore="NestedWeights" />
+                android:clickable="true"
+                android:foreground="?android:attr/selectableItemBackground"
+                card_view:cardCornerRadius="8dp"
+                card_view:cardElevation="@dimen/number_pad_elevation">
 
-            <TextView
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="@string/number_7"
+                    android:textAppearance="?android:textAppearanceLarge"
+                    android:textColor="#ff474747"
+                    android:textStyle="bold"
+                    tools:ignore="NestedWeights" />
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
                 android:id="@+id/tvNumber8"
                 android:layout_width="0.0dip"
                 android:layout_height="match_parent"
+                android:layout_margin="@dimen/number_pad_margin"
                 android:layout_weight="1.0"
-                android:gravity="center"
-                android:text="@string/number_8"
-                android:textAppearance="?android:textAppearanceLarge"
-                android:textColor="#ff474747"
-                android:textStyle="bold" />
+                android:clickable="true"
+                android:foreground="?android:attr/selectableItemBackground"
+                card_view:cardCornerRadius="8dp"
+                card_view:cardElevation="@dimen/number_pad_elevation">
 
-            <TextView
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="@string/number_8"
+                    android:textAppearance="?android:textAppearanceLarge"
+                    android:textColor="#ff474747"
+                    android:textStyle="bold"
+                    tools:ignore="NestedWeights" />
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
                 android:id="@+id/tvNumber9"
                 android:layout_width="0.0dip"
                 android:layout_height="match_parent"
+                android:layout_margin="@dimen/number_pad_margin"
                 android:layout_weight="1.0"
-                android:gravity="center"
-                android:text="@string/number_9"
-                android:textAppearance="?android:textAppearanceLarge"
-                android:textColor="#ff474747"
-                android:textStyle="bold" />
+                android:clickable="true"
+                android:foreground="?android:attr/selectableItemBackground"
+                card_view:cardCornerRadius="8dp"
+                card_view:cardElevation="@dimen/number_pad_elevation">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="@string/number_9"
+                    android:textAppearance="?android:textAppearanceLarge"
+                    android:textColor="#ff474747"
+                    android:textStyle="bold"
+                    tools:ignore="NestedWeights" />
+            </android.support.v7.widget.CardView>
+
         </LinearLayout>
 
         <LinearLayout
@@ -321,39 +419,73 @@
             android:layout_height="0.0dip"
             android:layout_weight="1.0">
 
-            <TextView
+            <android.support.v7.widget.CardView
                 android:id="@+id/tvNumber00"
                 android:layout_width="0.0dip"
                 android:layout_height="match_parent"
+                android:layout_margin="@dimen/number_pad_margin"
                 android:layout_weight="1.0"
-                android:gravity="center"
-                android:text="@string/number_00"
-                android:textAppearance="?android:textAppearanceLarge"
-                android:textColor="#ff474747"
-                android:textStyle="bold"
-                tools:ignore="NestedWeights" />
+                android:clickable="true"
+                android:foreground="?android:attr/selectableItemBackground"
+                card_view:cardCornerRadius="8dp"
+                card_view:cardElevation="@dimen/number_pad_elevation">
 
-            <TextView
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="@string/number_00"
+                    android:textAppearance="?android:textAppearanceLarge"
+                    android:textColor="#ff474747"
+                    android:textStyle="bold"
+                    tools:ignore="NestedWeights" />
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
                 android:id="@+id/tvNumber0"
                 android:layout_width="0.0dip"
                 android:layout_height="match_parent"
+                android:layout_margin="@dimen/number_pad_margin"
                 android:layout_weight="1.0"
-                android:gravity="center"
-                android:text="@string/number_0"
-                android:textAppearance="?android:textAppearanceLarge"
-                android:textColor="#ff474747"
-                android:textStyle="bold" />
+                android:clickable="true"
+                android:foreground="?android:attr/selectableItemBackground"
+                card_view:cardCornerRadius="8dp"
+                card_view:cardElevation="@dimen/number_pad_elevation">
 
-            <TextView
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="@string/number_0"
+                    android:textAppearance="?android:textAppearanceLarge"
+                    android:textColor="#ff474747"
+                    android:textStyle="bold"
+                    tools:ignore="NestedWeights" />
+            </android.support.v7.widget.CardView>
+
+
+            <android.support.v7.widget.CardView
                 android:id="@+id/tvNumberC"
                 android:layout_width="0.0dip"
                 android:layout_height="match_parent"
+                android:layout_margin="@dimen/number_pad_margin"
                 android:layout_weight="1.0"
-                android:gravity="center"
-                android:text="@string/tvNumberClear"
-                android:textAppearance="?android:textAppearanceLarge"
-                android:textColor="#ff474747"
-                android:textStyle="bold" />
+                android:clickable="true"
+                android:foreground="?android:attr/selectableItemBackground"
+                card_view:cardCornerRadius="8dp"
+                card_view:cardElevation="@dimen/number_pad_elevation">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="@string/number_c"
+                    android:textAppearance="?android:textAppearanceLarge"
+                    android:textColor="#ff474747"
+                    android:textStyle="bold"
+                    tools:ignore="NestedWeights" />
+            </android.support.v7.widget.CardView>
+
         </LinearLayout>
     </LinearLayout>
 </RelativeLayout>
