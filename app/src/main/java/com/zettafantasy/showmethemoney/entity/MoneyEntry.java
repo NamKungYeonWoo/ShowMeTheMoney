@@ -1,7 +1,5 @@
 package com.zettafantasy.showmethemoney.entity;
 
-import java.util.Date;
-
 /**
  * Created by CA on 2017-03-08.
  */
@@ -9,10 +7,19 @@ import java.util.Date;
 public class MoneyEntry {
     private long _id;
     private long amount;
-    private Date date;
+    private long date;
     private String memo;
     private Type type;
     private int subType;
+
+    public static MoneyEntry getInstance() {
+        MoneyEntry entry = new MoneyEntry();
+        entry.setAmount(0);
+        entry.setDate(System.currentTimeMillis());
+        entry.setType(Type.EXPENSE);
+        entry.setSubType(0);
+        return entry;
+    }
 
     public long getAmount() {
         return amount;
@@ -22,11 +29,11 @@ public class MoneyEntry {
         this.amount = amount;
     }
 
-    public Date getDate() {
+    public long getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(long date) {
         this.date = date;
     }
 
@@ -65,10 +72,10 @@ public class MoneyEntry {
     public enum Type {
         EXPENSE(0), INCOME(1);
 
-        private Type(int value) {
+        int value;
+
+        Type(int value) {
             this.value = value;
         }
-
-        int value;
     }
 }

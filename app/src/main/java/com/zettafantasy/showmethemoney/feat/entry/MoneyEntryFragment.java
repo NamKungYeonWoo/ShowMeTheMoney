@@ -33,8 +33,7 @@ import butterknife.Unbinder;
 public class MoneyEntryFragment extends Fragment {
 
     private static final String TAG = MoneyEntryFragment.class.getSimpleName();
-    private Unbinder unbinder;
-
+    private final DecimalFormat currencyFormat = new DecimalFormat("#,###,###");
     @BindView(R.id.tvDate)
     TextView tvPickDate;
 
@@ -65,12 +64,11 @@ public class MoneyEntryFragment extends Fragment {
 
     @BindView(R.id.tvAmount)
     TextView tvAmount;
-    @BindView(R.id.tvEntryType)
+    @BindView(R.id.tvEntrySubType)
     TextView tvEntrySubType;
-    @BindView(R.id.etEntryDesc)
+    @BindView(R.id.etMemo)
     EditText etMemo;
-
-    private final DecimalFormat currencyFormat = new DecimalFormat("#,###,###");
+    private Unbinder unbinder;
 
     public MoneyEntry getMoneyEntry() {
         MoneyEntry moneyEntry = new MoneyEntry();

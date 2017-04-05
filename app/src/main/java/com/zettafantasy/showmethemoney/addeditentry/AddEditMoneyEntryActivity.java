@@ -31,7 +31,7 @@ public class AddEditMoneyEntryActivity extends AppCompatActivity {
 
     public static final int REQUEST_ADD_TASK = 1;
 
-//    private AddEditTaskPresenter mAddEditTaskPresenter;
+    private AddEditMoneyEntryPresenter mAddEditMoneyEntryPresenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,7 +48,7 @@ public class AddEditMoneyEntryActivity extends AppCompatActivity {
         AddEditMoneyEntryFragment addEditMoneyEntryFragment =
                 (AddEditMoneyEntryFragment) getSupportFragmentManager().findFragmentById(R.id.contentFrame); //TODO contentFrame id가 여러개인데 현재 activity에서 찾아주는건가? 따로 infalte해주지 않아도 되는건가?
 
-        String entryId = getIntent().getStringExtra(AddEditMoneyEntryFragment.ARGUMENT_EDIT_ENTRY_ID);
+        long entryId = getIntent().getLongExtra(AddEditMoneyEntryFragment.ARGUMENT_EDIT_ENTRY_ID, -1);
 
         if (addEditMoneyEntryFragment == null) {
             addEditMoneyEntryFragment = AddEditMoneyEntryFragment.newInstance();
@@ -74,14 +74,16 @@ public class AddEditMoneyEntryActivity extends AppCompatActivity {
 //            shouldLoadDataFromRepo = savedInstanceState.getBoolean(SHOULD_LOAD_DATA_FROM_REPO_KEY);
 //        }
 //
-//        // Create the presenter
-//        mAddEditTaskPresenter = new AddEditTaskPresenter(
-//                taskId,
-//                Injection.provideTasksRepository(getApplicationContext()),
-//                addEditTaskFragment,
-//                shouldLoadDataFromRepo);
-//
-//        addEditTaskFragment.setPresenter(mAddEditTaskPresenter);
+            // Create the presenter
+            mAddEditMoneyEntryPresenter = new AddEditMoneyEntryPresenter(
+                    addEditMoneyEntryFragment,
+                    entryId);
+            //taskId,
+            //Injection.provideTasksRepository(getApplicationContext()),
+            //addEditTaskFragment,
+            //shouldLoadDataFromRepo);
+
+            addEditMoneyEntryFragment.setPresenter(mAddEditMoneyEntryPresenter);
         }
     }
 

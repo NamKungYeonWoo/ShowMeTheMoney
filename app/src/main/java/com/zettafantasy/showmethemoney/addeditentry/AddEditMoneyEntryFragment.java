@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.DatePicker;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import com.zettafantasy.showmethemoney.R;
@@ -57,17 +58,20 @@ public class AddEditMoneyEntryFragment extends Fragment implements AddEditMoneyE
     View mTvNumber0;
     @BindView(R.id.tvNumberC)
     View mTvNumberC;
-    private Unbinder unbinder;
-    private long mAmount = 0;
-
     @BindView(R.id.tvDate)
     TextView mTvDate;
-    Calendar mCalendar;
-
-    @BindView(R.id.tvEntryType)
+    Calendar mCalendar = Calendar.getInstance();
+    @BindView(R.id.tvEntrySubType)
     TextView tvEntrySubType;
     int subTypeIndex; // TOD def 설정하기
+    @BindView(R.id.etMemo)
+    TextView etMemo;
+    @BindView(R.id.rg_entry_type)
+    RadioGroup rgEntryType;
+    private Unbinder unbinder;
+    private long mAmount = 0;
     private String[] SUBTYPE_TEXT_LIST;
+    private AddEditMoneyEntryContract.Presenter presenter;
 
     public static AddEditMoneyEntryFragment newInstance() {
         return new AddEditMoneyEntryFragment();
@@ -75,7 +79,7 @@ public class AddEditMoneyEntryFragment extends Fragment implements AddEditMoneyE
 
     @Override
     public void setPresenter(AddEditMoneyEntryContract.Presenter presenter) {
-
+        this.presenter = presenter;
     }
 
     @Override
@@ -112,7 +116,14 @@ public class AddEditMoneyEntryFragment extends Fragment implements AddEditMoneyE
 
     @Override
     public void setType(MoneyEntry.Type type) {
-
+        switch (type) {
+            case INCOME:
+                rgEntryType.check(R.id.radio_income);
+                break;
+            case EXPENSE:
+                rgEntryType.check(R.id.radio_expense);
+                break;
+        }
     }
 
     @Override
@@ -138,7 +149,7 @@ public class AddEditMoneyEntryFragment extends Fragment implements AddEditMoneyE
 
     @Override
     public void setMemo(String memo) {
-
+        etMemo.setText(memo);
     }
 
     @Override
@@ -173,11 +184,12 @@ public class AddEditMoneyEntryFragment extends Fragment implements AddEditMoneyE
         initDatePicker();
         initNumberPad();
         initEntrySubType();
+
+        presenter.start();
     }
 
     private void initEntrySubType() {
         SUBTYPE_TEXT_LIST = getResources().getStringArray(R.array.entry_expense_type);
-        setSubType(0);
         tvEntrySubType.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -187,9 +199,6 @@ public class AddEditMoneyEntryFragment extends Fragment implements AddEditMoneyE
     }
 
     private void initDatePicker() {
-        mCalendar = Calendar.getInstance();
-        setDate(mCalendar);
-
         mTvDate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -199,8 +208,6 @@ public class AddEditMoneyEntryFragment extends Fragment implements AddEditMoneyE
     }
 
     private void initNumberPad() {
-        mTvAmount.setText(StringUtils.makeNumberComma(mAmount));
-
         mTvNumber1.setOnClickListener(new NumberPadClickListener(1));
         mTvNumber2.setOnClickListener(new NumberPadClickListener(2));
         mTvNumber3.setOnClickListener(new NumberPadClickListener(3));
