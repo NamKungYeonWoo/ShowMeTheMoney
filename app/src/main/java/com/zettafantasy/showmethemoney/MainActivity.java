@@ -1,6 +1,5 @@
 package com.zettafantasy.showmethemoney;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -9,8 +8,6 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-
-import com.zettafantasy.showmethemoney.feat.entry.MoneyEntryActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -31,8 +28,8 @@ public class MainActivity extends AppCompatActivity {
                 //Intent startBarActivity = new Intent(MainActivity.this, BarChartActivity.class);
                 //startActivity(startBarActivity);
 
-                Intent startMoneyEntryActivity = new Intent(MainActivity.this, MoneyEntryActivity.class);
-                startActivity(startMoneyEntryActivity);
+//                Intent startMoneyEntryActivity = new Intent(MainActivity.this, MoneyEntryActivity.class);
+//                startActivity(startMoneyEntryActivity);
             }
         });
     }

@@ -7,7 +7,7 @@ import org.apache.commons.lang3.builder.ToStringBuilder;
  */
 
 public class MoneyEntry {
-    private long _id;
+    private Long _id;
     private long amount;
     private long date;
     private String memo;
@@ -83,6 +83,10 @@ public class MoneyEntry {
 
         Type(int value) {
             this.value = value;
+        }
+
+        public int getValue() {
+            return value;
         }
     }
 }

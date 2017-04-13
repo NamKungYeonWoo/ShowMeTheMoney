@@ -31,7 +31,7 @@ public interface MoneyEntryColumns {
     @NotNull
     public static final String MEMO = "memo";
 
-    @DataType(DataType.Type.TEXT)
+    @DataType(DataType.Type.INTEGER)
     @NotNull
     public static final String DATE = "date";
 }

@@ -1,7 +1,12 @@
 package com.zettafantasy.showmethemoney.addeditentry;
 
+import android.content.ContentValues;
+import android.content.Context;
+import android.net.Uri;
 import android.util.Log;
 
+import com.zettafantasy.showmethemoney.data.MoneyEntryColumns;
+import com.zettafantasy.showmethemoney.data.MoneyEntryProvider;
 import com.zettafantasy.showmethemoney.entity.MoneyEntry;
 
 /**
@@ -10,52 +15,54 @@ import com.zettafantasy.showmethemoney.entity.MoneyEntry;
 
 public class AddEditMoneyEntryPresenter implements AddEditMoneyEntryContract.Presenter {
     private final String TAG = AddEditMoneyEntryPresenter.class.getSimpleName();
-    private final AddEditMoneyEntryFragment view;
+    private final AddEditMoneyEntryContract.View view;
     private final long entryId;
+    private final Context context;
     private MoneyEntry model;
 
-    public AddEditMoneyEntryPresenter(AddEditMoneyEntryFragment moneyEntryFragment, long entryId) {
-        this.view = moneyEntryFragment;
+    public AddEditMoneyEntryPresenter(AddEditMoneyEntryContract.View view, Context context, long entryId) {
+        this.view = view;
+        this.context = context;
         this.entryId = entryId;
     }
 
     @Override
     public void start() {
-        populateEntry();
+        if (!isEntryNew()) {
+            populateEntry();
+        }
     }
 
     @Override
-    public void setAmount(long amount) {
-        model.setAmount(amount);
-    }
+    public void saveEntry(MoneyEntry entry) {
+        Log.v(TAG, entry.toString());
 
-    @Override
-    public void setMemo(String memo) {
-        model.setMemo(memo);
-    }
+        ContentValues cv = new ContentValues();
+        cv.put(MoneyEntryColumns.TYPE, entry.getType().getValue());
+        cv.put(MoneyEntryColumns.DATE, entry.getDate());
+        cv.put(MoneyEntryColumns.SUB_TYPE, entry.getSubType());
+        cv.put(MoneyEntryColumns.AMOUNT, entry.getAmount());
+        cv.put(MoneyEntryColumns.MEMO, entry.getMemo());
 
-    @Override
-    public void setDate(long date) {
-        model.setDate(date);
-    }
+        Uri uri = context.getContentResolver()
+                .insert(MoneyEntryProvider.MoneyEntries.CONTENT_URI, cv);
 
-    @Override
-    public void saveEntry() {
-        Log.d(TAG, model.toString());
+        Log.v(TAG, uri.toString());
     }
 
     @Override
     public void populateEntry() {
-        if (entryId == -1) {
-            model = MoneyEntry.getInstance();
-        } else {
-            //TODO DB 조회 후 model 채움
+        if (isEntryNew()) {
+            throw new RuntimeException("populateEntry() was called but entry is new.");
         }
 
-        view.onAmountChanged(model.getAmount());
-        view.setType(model.getType());
-        view.setSubType(model.getSubType());
-        view.setDate(model.getDate());
-        view.onMemoChanged(model.getMemo());
+        //TODO DB 조회 후 model 채움
+        model = MoneyEntry.getInstance();
+
+        view.setEntry(model);
+    }
+
+    private boolean isEntryNew() {
+        return entryId < 0;
     }
 }

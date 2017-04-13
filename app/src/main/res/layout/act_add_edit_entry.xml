@@ -1,0 +1,552 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".addeditentry.AddEditMoneyEntryActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <android.support.design.widget.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?attr/colorPrimary"
+                android:minHeight="?attr/actionBarSize"
+                android:theme="@style/Toolbar"
+                app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+        </android.support.design.widget.AppBarLayout>
+
+        <RelativeLayout
+            android:id="@+id/layout_money_entry"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#ffffffff">
+
+            <RadioGroup
+                android:id="@+id/rg_entry_type"
+                android:layout_width="match_parent"
+                android:layout_height="48.0dip"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/radio_income"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="@string/income"
+                    android:textAppearance="?android:textAppearanceLarge" />
+
+                <RadioButton
+                    android:id="@+id/radio_expense"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="@string/expense"
+                    android:checked="true"
+                    android:textAppearance="?android:textAppearanceLarge" />
+            </RadioGroup>
+
+            <RelativeLayout
+                android:id="@+id/DateRow"
+                android:layout_width="match_parent"
+                android:layout_height="48.0dip"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@id/rg_entry_type">
+
+                <ImageView
+                    android:id="@+id/iconDate"
+                    android:layout_width="30.0dip"
+                    android:layout_height="30.0dip"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginBottom="4.0dip"
+                    android:layout_marginStart="14.0dip"
+                    android:contentDescription="@string/icon_for_date_picker"
+                    android:src="@drawable/ic_date_range_black_24dp" />
+
+                <TextView
+                    android:id="@+id/lineDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="1.0px"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="14.0dip"
+                    android:layout_marginStart="14.0dip"
+                    android:layout_toEndOf="@id/iconDate"
+                    android:background="#ffdddddd" />
+
+                <TextView
+                    android:id="@+id/tvDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30.0dip"
+                    android:layout_above="@id/lineDate"
+                    android:layout_alignEnd="@id/lineDate"
+                    android:layout_alignStart="@id/lineDate"
+                    android:layout_marginBottom="4.0dip"
+                    android:gravity="center"
+                    android:textAppearance="?android:textAppearanceMedium"
+                    android:textColor="#ff474747"
+                    tools:text="2015. 09. 16(수)" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/input2"
+                android:layout_width="match_parent"
+                android:layout_height="50.0dip"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@id/DateRow">
+
+                <ImageView
+                    android:id="@+id/imageView11"
+                    android:layout_width="30.0dip"
+                    android:layout_height="30.0dip"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginBottom="4.0dip"
+                    android:layout_marginStart="14.0dip"
+                    android:contentDescription="@string/icon_for_entry_type"
+                    android:src="@drawable/ic_action_labels" />
+
+                <TextView
+                    android:id="@+id/textView33"
+                    android:layout_width="wrap_content"
+                    android:layout_height="1.0px"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="14.0dip"
+                    android:layout_marginStart="14.0dip"
+                    android:layout_toEndOf="@id/imageView11"
+                    android:background="#ffdddddd" />
+
+                <TextView
+                    android:id="@+id/tvEntrySubType"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30.0dip"
+                    android:layout_above="@id/textView33"
+                    android:layout_alignEnd="@id/textView33"
+                    android:layout_alignStart="@id/textView33"
+                    android:layout_marginBottom="4.0dip"
+                    android:gravity="center"
+                    android:textAppearance="?android:textAppearanceMedium"
+                    android:textColor="#ff474747"
+                    tools:text="@string/default_entry_type" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/input22"
+                android:layout_width="match_parent"
+                android:layout_height="70.0dip"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@id/input2">
+
+                <ImageView
+                    android:id="@+id/imageView1111"
+                    android:layout_width="30.0dip"
+                    android:layout_height="30.0dip"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginBottom="4.0dip"
+                    android:layout_marginStart="14.0dip"
+                    android:contentDescription="@string/icon_for_description"
+                    android:src="@drawable/ic_description_black_24dp" />
+
+                <TextView
+                    android:id="@+id/textView3333"
+                    android:layout_width="wrap_content"
+                    android:layout_height="1.0px"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="14.0dip"
+                    android:layout_marginStart="14.0dip"
+                    android:layout_toEndOf="@id/imageView1111"
+                    android:background="#ffdddddd" />
+
+                <EditText
+                    android:id="@+id/etMemo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_above="@id/textView3333"
+                    android:layout_alignEnd="@id/textView3333"
+                    android:layout_alignStart="@id/textView3333"
+                    android:gravity="center"
+                    android:hint="@string/hint_et_entry_desc"
+                    android:inputType="textMultiLine"
+                    android:lines="2"
+                    android:maxLines="2"
+                    android:minLines="1"
+                    android:textAppearance="?android:textAppearanceMedium"
+                    android:textColor="#ffaaaaaa" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/input3"
+                android:layout_width="match_parent"
+                android:layout_height="48.0dip"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@id/input22">
+
+                <ImageView
+                    android:id="@+id/imageView111"
+                    android:layout_width="30.0dip"
+                    android:layout_height="30.0dip"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginBottom="4.0dip"
+                    android:layout_marginStart="14.0dip"
+                    android:contentDescription="@string/icon_for_money"
+                    android:src="@drawable/ic_currency" />
+
+                <TextView
+                    android:id="@+id/textView333"
+                    android:layout_width="wrap_content"
+                    android:layout_height="1.0px"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="14.0dip"
+                    android:layout_marginStart="14.0dip"
+                    android:layout_toEndOf="@id/imageView111"
+                    android:background="#ffdddddd" />
+
+                <TextView
+                    android:id="@+id/tvAmount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30.0dip"
+                    android:layout_above="@id/textView333"
+                    android:layout_alignEnd="@id/textView333"
+                    android:layout_alignStart="@id/textView333"
+                    android:layout_marginBottom="4.0dip"
+                    android:gravity="center"
+                    android:text="@string/_0"
+                    android:textAppearance="?android:textAppearanceMedium"
+                    android:textColor="#ff474747" />
+            </RelativeLayout>
+
+            <LinearLayout xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/vgDialPad"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@id/input3"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0.0dip"
+                    android:layout_weight="1.0">
+
+                    <android.support.v7.widget.CardView
+                        android:id="@+id/tvNumber1"
+                        android:layout_width="0.0dip"
+                        android:layout_height="match_parent"
+                        android:layout_margin="@dimen/number_pad_margin"
+                        android:layout_weight="1.0"
+                        android:clickable="true"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        card_view:cardCornerRadius="@dimen/number_pad_corner_radius"
+                        card_view:cardElevation="@dimen/number_pad_elevation"
+                        tools:ignore="NestedWeights">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:text="@string/number_1"
+                            android:textAppearance="?android:textAppearanceLarge"
+                            android:textColor="#ff474747"
+                            android:textStyle="bold"
+                            tools:ignore="NestedWeights" />
+                    </android.support.v7.widget.CardView>
+
+                    <android.support.v7.widget.CardView
+                        android:id="@+id/tvNumber2"
+                        android:layout_width="0.0dip"
+                        android:layout_height="match_parent"
+                        android:layout_margin="@dimen/number_pad_margin"
+                        android:layout_weight="1.0"
+                        android:clickable="true"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        card_view:cardCornerRadius="@dimen/number_pad_corner_radius"
+                        card_view:cardElevation="@dimen/number_pad_elevation">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:text="@string/number_2"
+                            android:textAppearance="?android:textAppearanceLarge"
+                            android:textColor="#ff474747"
+                            android:textStyle="bold"
+                            tools:ignore="NestedWeights" />
+                    </android.support.v7.widget.CardView>
+
+                    <android.support.v7.widget.CardView
+                        android:id="@+id/tvNumber3"
+                        android:layout_width="0.0dip"
+                        android:layout_height="match_parent"
+                        android:layout_margin="@dimen/number_pad_margin"
+                        android:layout_weight="1.0"
+                        android:clickable="true"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        card_view:cardCornerRadius="@dimen/number_pad_corner_radius"
+                        card_view:cardElevation="@dimen/number_pad_elevation">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:text="@string/number_3"
+                            android:textAppearance="?android:textAppearanceLarge"
+                            android:textColor="#ff474747"
+                            android:textStyle="bold"
+                            tools:ignore="NestedWeights" />
+                    </android.support.v7.widget.CardView>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0.0dip"
+                    android:layout_weight="1.0">
+
+                    <android.support.v7.widget.CardView
+                        android:id="@+id/tvNumber4"
+                        android:layout_width="0.0dip"
+                        android:layout_height="match_parent"
+                        android:layout_margin="@dimen/number_pad_margin"
+                        android:layout_weight="1.0"
+                        android:clickable="true"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        card_view:cardCornerRadius="@dimen/number_pad_corner_radius"
+                        card_view:cardElevation="@dimen/number_pad_elevation"
+                        tools:ignore="NestedWeights">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:text="@string/number_4"
+                            android:textAppearance="?android:textAppearanceLarge"
+                            android:textColor="#ff474747"
+                            android:textStyle="bold"
+                            tools:ignore="NestedWeights" />
+                    </android.support.v7.widget.CardView>
+
+                    <android.support.v7.widget.CardView
+                        android:id="@+id/tvNumber5"
+                        android:layout_width="0.0dip"
+                        android:layout_height="match_parent"
+                        android:layout_margin="@dimen/number_pad_margin"
+                        android:layout_weight="1.0"
+                        android:clickable="true"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        card_view:cardCornerRadius="@dimen/number_pad_corner_radius"
+                        card_view:cardElevation="@dimen/number_pad_elevation">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:text="@string/number_5"
+                            android:textAppearance="?android:textAppearanceLarge"
+                            android:textColor="#ff474747"
+                            android:textStyle="bold"
+                            tools:ignore="NestedWeights" />
+                    </android.support.v7.widget.CardView>
+
+                    <android.support.v7.widget.CardView
+                        android:id="@+id/tvNumber6"
+                        android:layout_width="0.0dip"
+                        android:layout_height="match_parent"
+                        android:layout_margin="@dimen/number_pad_margin"
+                        android:layout_weight="1.0"
+                        android:clickable="true"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        card_view:cardCornerRadius="@dimen/number_pad_corner_radius"
+                        card_view:cardElevation="@dimen/number_pad_elevation">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:text="@string/number_6"
+                            android:textAppearance="?android:textAppearanceLarge"
+                            android:textColor="#ff474747"
+                            android:textStyle="bold"
+                            tools:ignore="NestedWeights" />
+                    </android.support.v7.widget.CardView>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0.0dip"
+                    android:layout_weight="1.0">
+
+                    <android.support.v7.widget.CardView
+                        android:id="@+id/tvNumber7"
+                        android:layout_width="0.0dip"
+                        android:layout_height="match_parent"
+                        android:layout_margin="@dimen/number_pad_margin"
+                        android:layout_weight="1.0"
+                        android:clickable="true"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        card_view:cardCornerRadius="@dimen/number_pad_corner_radius"
+                        card_view:cardElevation="@dimen/number_pad_elevation"
+                        tools:ignore="NestedWeights">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:text="@string/number_7"
+                            android:textAppearance="?android:textAppearanceLarge"
+                            android:textColor="#ff474747"
+                            android:textStyle="bold"
+                            tools:ignore="NestedWeights" />
+                    </android.support.v7.widget.CardView>
+
+                    <android.support.v7.widget.CardView
+                        android:id="@+id/tvNumber8"
+                        android:layout_width="0.0dip"
+                        android:layout_height="match_parent"
+                        android:layout_margin="@dimen/number_pad_margin"
+                        android:layout_weight="1.0"
+                        android:clickable="true"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        card_view:cardCornerRadius="@dimen/number_pad_corner_radius"
+                        card_view:cardElevation="@dimen/number_pad_elevation">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:text="@string/number_8"
+                            android:textAppearance="?android:textAppearanceLarge"
+                            android:textColor="#ff474747"
+                            android:textStyle="bold"
+                            tools:ignore="NestedWeights" />
+                    </android.support.v7.widget.CardView>
+
+                    <android.support.v7.widget.CardView
+                        android:id="@+id/tvNumber9"
+                        android:layout_width="0.0dip"
+                        android:layout_height="match_parent"
+                        android:layout_margin="@dimen/number_pad_margin"
+                        android:layout_weight="1.0"
+                        android:clickable="true"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        card_view:cardCornerRadius="@dimen/number_pad_corner_radius"
+                        card_view:cardElevation="@dimen/number_pad_elevation">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:text="@string/number_9"
+                            android:textAppearance="?android:textAppearanceLarge"
+                            android:textColor="#ff474747"
+                            android:textStyle="bold"
+                            tools:ignore="NestedWeights" />
+                    </android.support.v7.widget.CardView>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0.0dip"
+                    android:layout_weight="1.0">
+
+                    <android.support.v7.widget.CardView
+                        android:id="@+id/tvNumber00"
+                        android:layout_width="0.0dip"
+                        android:layout_height="match_parent"
+                        android:layout_margin="@dimen/number_pad_margin"
+                        android:layout_weight="1.0"
+                        android:clickable="true"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        card_view:cardCornerRadius="@dimen/number_pad_corner_radius"
+                        card_view:cardElevation="@dimen/number_pad_elevation"
+                        tools:ignore="NestedWeights">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:text="@string/number_00"
+                            android:textAppearance="?android:textAppearanceLarge"
+                            android:textColor="#ff474747"
+                            android:textStyle="bold"
+                            tools:ignore="NestedWeights" />
+                    </android.support.v7.widget.CardView>
+
+                    <android.support.v7.widget.CardView
+                        android:id="@+id/tvNumber0"
+                        android:layout_width="0.0dip"
+                        android:layout_height="match_parent"
+                        android:layout_margin="@dimen/number_pad_margin"
+                        android:layout_weight="1.0"
+                        android:clickable="true"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        card_view:cardCornerRadius="@dimen/number_pad_corner_radius"
+                        card_view:cardElevation="@dimen/number_pad_elevation">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:text="@string/number_0"
+                            android:textAppearance="?android:textAppearanceLarge"
+                            android:textColor="#ff474747"
+                            android:textStyle="bold"
+                            tools:ignore="NestedWeights" />
+                    </android.support.v7.widget.CardView>
+
+
+                    <android.support.v7.widget.CardView
+                        android:id="@+id/tvNumberC"
+                        android:layout_width="0.0dip"
+                        android:layout_height="match_parent"
+                        android:layout_margin="@dimen/number_pad_margin"
+                        android:layout_weight="1.0"
+                        android:clickable="true"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        card_view:cardCornerRadius="@dimen/number_pad_corner_radius"
+                        card_view:cardElevation="@dimen/number_pad_elevation">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:text="@string/number_c"
+                            android:textAppearance="?android:textAppearanceLarge"
+                            android:textColor="#ff474747"
+                            android:textStyle="bold"
+                            tools:ignore="NestedWeights" />
+                    </android.support.v7.widget.CardView>
+
+                </LinearLayout>
+            </LinearLayout>
+        </RelativeLayout>
+    </LinearLayout>
+
+</android.support.v4.widget.DrawerLayout>
