@@ -1,5 +1,7 @@
 package com.zettafantasy.showmethemoney.entity;
 
+import org.apache.commons.lang3.builder.ToStringBuilder;
+
 /**
  * Created by CA on 2017-03-08.
  */
@@ -67,6 +69,11 @@ public class MoneyEntry {
 
     public void set_id(long _id) {
         this._id = _id;
+    }
+
+    @Override
+    public String toString() {
+        return ToStringBuilder.reflectionToString(this);
     }
 
     public enum Type {

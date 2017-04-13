@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AlertDialog;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -69,7 +71,7 @@ public class AddEditMoneyEntryFragment extends Fragment implements AddEditMoneyE
     @BindView(R.id.rg_entry_type)
     RadioGroup rgEntryType;
     private Unbinder unbinder;
-    private long mAmount = 0;
+    private long lastUpdatedAmount = 0;
     private String[] SUBTYPE_TEXT_LIST;
     private AddEditMoneyEntryContract.Presenter presenter;
 
@@ -83,9 +85,8 @@ public class AddEditMoneyEntryFragment extends Fragment implements AddEditMoneyE
     }
 
     @Override
-    public void setDate(long date) {
-        mCalendar.setTimeInMillis(date);
-        setDate(mCalendar);
+    public void onDateChanged(long date) {
+        presenter.setDate(date);
     }
 
     private void setDate(Calendar mCalendar) {
@@ -106,6 +107,7 @@ public class AddEditMoneyEntryFragment extends Fragment implements AddEditMoneyE
                     public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
                         mCalendar.set(year, month, dayOfMonth);
                         setDate(mCalendar);
+                        onDateChanged(mCalendar.getTimeInMillis());
                     }
                 },
                 mCalendar.get(Calendar.YEAR),
@@ -148,14 +150,15 @@ public class AddEditMoneyEntryFragment extends Fragment implements AddEditMoneyE
     }
 
     @Override
-    public void setMemo(String memo) {
-        etMemo.setText(memo);
+    public void onMemoChanged(String memo) {
+        presenter.setMemo(memo);
     }
 
     @Override
-    public void setAmount(long amount) {
-        mAmount = amount;
-        mTvAmount.setText(StringUtils.makeNumberComma(mAmount));
+    public void onAmountChanged(long amount) {
+        lastUpdatedAmount = amount;
+        mTvAmount.setText(StringUtils.makeNumberComma(amount));
+        presenter.setAmount(amount);
     }
 
     @Override
@@ -166,6 +169,11 @@ public class AddEditMoneyEntryFragment extends Fragment implements AddEditMoneyE
     @Override
     public void showEmptyAmountError() {
 
+    }
+
+    @Override
+    public void onSaveButtonClick() {
+        presenter.saveEntry();
     }
 
     @Nullable
@@ -184,8 +192,26 @@ public class AddEditMoneyEntryFragment extends Fragment implements AddEditMoneyE
         initDatePicker();
         initNumberPad();
         initEntrySubType();
+        initMemo();
 
         presenter.start();
+    }
+
+    private void initMemo() {
+        etMemo.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                onMemoChanged(s.toString());
+            }
+        });
     }
 
     private void initEntrySubType() {
@@ -222,7 +248,7 @@ public class AddEditMoneyEntryFragment extends Fragment implements AddEditMoneyE
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        setAmount(mAmount == 0 ? 0 : mAmount * 100);
+                        onAmountChanged(lastUpdatedAmount == 0 ? 0 : lastUpdatedAmount * 100);
                     }
                 }
         );
@@ -230,7 +256,7 @@ public class AddEditMoneyEntryFragment extends Fragment implements AddEditMoneyE
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        setAmount(0);
+                        onAmountChanged(0);
                     }
                 }
         );
@@ -251,7 +277,7 @@ public class AddEditMoneyEntryFragment extends Fragment implements AddEditMoneyE
 
         @Override
         public void onClick(View v) {
-            setAmount(mAmount == 0 ? number : mAmount * 10 + number);
+            onAmountChanged(lastUpdatedAmount == 0 ? number : lastUpdatedAmount * 10 + number);
         }
     }
 }

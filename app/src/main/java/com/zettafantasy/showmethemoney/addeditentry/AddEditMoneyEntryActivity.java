@@ -20,6 +20,8 @@ import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuItem;
 
 import com.zettafantasy.showmethemoney.ActivityUtils;
 import com.zettafantasy.showmethemoney.R;
@@ -32,6 +34,7 @@ public class AddEditMoneyEntryActivity extends AppCompatActivity {
     public static final int REQUEST_ADD_TASK = 1;
 
     private AddEditMoneyEntryPresenter mAddEditMoneyEntryPresenter;
+    private AddEditMoneyEntryFragment addEditMoneyEntryFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,7 +48,7 @@ public class AddEditMoneyEntryActivity extends AppCompatActivity {
         actionBar.setDisplayHomeAsUpEnabled(true);
         actionBar.setDisplayShowHomeEnabled(true);
 
-        AddEditMoneyEntryFragment addEditMoneyEntryFragment =
+        addEditMoneyEntryFragment =
                 (AddEditMoneyEntryFragment) getSupportFragmentManager().findFragmentById(R.id.contentFrame); //TODO contentFrame id가 여러개인데 현재 activity에서 찾아주는건가? 따로 infalte해주지 않아도 되는건가?
 
         long entryId = getIntent().getLongExtra(AddEditMoneyEntryFragment.ARGUMENT_EDIT_ENTRY_ID, -1);
@@ -92,4 +95,22 @@ public class AddEditMoneyEntryActivity extends AppCompatActivity {
 //        onBackPressed();
 //        return true;
 //    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_entry, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        if (id == R.id.action_save) {
+            addEditMoneyEntryFragment.onSaveButtonClick();
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
 }

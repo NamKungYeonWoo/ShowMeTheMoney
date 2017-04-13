@@ -1,5 +1,7 @@
 package com.zettafantasy.showmethemoney.addeditentry;
 
+import android.util.Log;
+
 import com.zettafantasy.showmethemoney.entity.MoneyEntry;
 
 /**
@@ -7,6 +9,7 @@ import com.zettafantasy.showmethemoney.entity.MoneyEntry;
  */
 
 public class AddEditMoneyEntryPresenter implements AddEditMoneyEntryContract.Presenter {
+    private final String TAG = AddEditMoneyEntryPresenter.class.getSimpleName();
     private final AddEditMoneyEntryFragment view;
     private final long entryId;
     private MoneyEntry model;
@@ -22,8 +25,23 @@ public class AddEditMoneyEntryPresenter implements AddEditMoneyEntryContract.Pre
     }
 
     @Override
-    public void saveEntry(MoneyEntry moneyEntry) {
+    public void setAmount(long amount) {
+        model.setAmount(amount);
+    }
 
+    @Override
+    public void setMemo(String memo) {
+        model.setMemo(memo);
+    }
+
+    @Override
+    public void setDate(long date) {
+        model.setDate(date);
+    }
+
+    @Override
+    public void saveEntry() {
+        Log.d(TAG, model.toString());
     }
 
     @Override
@@ -34,10 +52,10 @@ public class AddEditMoneyEntryPresenter implements AddEditMoneyEntryContract.Pre
             //TODO DB 조회 후 model 채움
         }
 
-        view.setAmount(model.getAmount());
+        view.onAmountChanged(model.getAmount());
         view.setType(model.getType());
         view.setSubType(model.getSubType());
         view.setDate(model.getDate());
-        view.setMemo(model.getMemo());
+        view.onMemoChanged(model.getMemo());
     }
 }

@@ -26,7 +26,7 @@ import com.zettafantasy.showmethemoney.entity.MoneyEntry;
 public interface AddEditMoneyEntryContract {
 
     interface View extends BaseView<Presenter> {
-        void setDate(long date); //TODO 어떤 타입으로 저장해야 좋은지 모르겠음(후보 long)
+        void onDateChanged(long date); //TODO 어떤 타입으로 저장해야 좋은지 모르겠음(후보 long)
 
         void launchDatePicker();
 
@@ -36,18 +36,25 @@ public interface AddEditMoneyEntryContract {
 
         void launchSubtypePicker();
 
-        void setMemo(String memo);
+        void onMemoChanged(String memo);
 
-        void setAmount(long amount);
+        void onAmountChanged(long amount);
 
-        void showEntryList();
+        void showEntryList(); //TODO 저장 후 목록을 보는 메소드
 
         void showEmptyAmountError();
+
+        void onSaveButtonClick();
     }
 
     interface Presenter extends BasePresenter {
+        void setAmount(long amount);
 
-        void saveEntry(MoneyEntry moneyEntry);
+        void setMemo(String memeo);
+
+        void setDate(long date);
+        
+        void saveEntry();
 
         void populateEntry();
     }
