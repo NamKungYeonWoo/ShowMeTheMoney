@@ -14,7 +14,7 @@ public final class MoneyEntryDatabase {
     private MoneyEntryDatabase() {
     }
 
-    public static final int VERSION = 0;
+    public static final int VERSION = 1;
 
     @Table(MoneyEntryColumns.class)
     public static final String MONEY_ENTRIES = "money_entries";
