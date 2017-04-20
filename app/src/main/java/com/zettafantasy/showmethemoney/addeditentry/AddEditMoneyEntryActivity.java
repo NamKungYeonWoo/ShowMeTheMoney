@@ -261,6 +261,7 @@ public class AddEditMoneyEntryActivity extends AppCompatActivity implements AddE
 
         if (id == R.id.action_save) {
             mPresenter.saveEntry(getMoneyEntry());
+            finish();
             return true;
         }
 

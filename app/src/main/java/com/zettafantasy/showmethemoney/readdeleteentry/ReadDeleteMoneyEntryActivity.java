@@ -16,44 +16,63 @@
 
 package com.zettafantasy.showmethemoney.readdeleteentry;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
 import com.zettafantasy.showmethemoney.R;
+import com.zettafantasy.showmethemoney.addeditentry.AddEditMoneyEntryActivity;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.Unbinder;
 
 public class ReadDeleteMoneyEntryActivity extends AppCompatActivity implements ReadDeleteMoneyEntryContract.View {
 
     private ReadDeleteMoneyEntryContract.Presenter mPresenter;
+    private Unbinder unbinder;
+
+    @BindView(R.id.rvEntries)
+    RecyclerView rvMoneyEntries;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.act_read_delete_entry);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+        unbinder = ButterKnife.bind(this);
+        initToolbar();
+        initRvMoneyEntries();
 
-        setPresenter(new ReadDeleteEntryPresenter(this, getApplicationContext()));
+        setPresenter(new ReadDeleteEntryPresenter(this, getApplicationContext(), (MoneyEntriesAdapter)rvMoneyEntries.getAdapter()));
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-
-                //Intent startBarActivity = new Intent(MainActivity.this, BarChartActivity.class);
-                //startActivity(startBarActivity);
-
-//                Intent startMoneyEntryActivity = new Intent(MainActivity.this, MoneyEntryActivity.class);
-//                startActivity(startMoneyEntryActivity);
+                Intent startAddMoneyEntryActivity = new Intent(ReadDeleteMoneyEntryActivity.this, AddEditMoneyEntryActivity.class);
+                startActivity(startAddMoneyEntryActivity);
+                //Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG).setAction("Action", null).show();
             }
         });
+    }
+
+    private void initRvMoneyEntries() {
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
+        rvMoneyEntries.setLayoutManager(linearLayoutManager);
+        rvMoneyEntries.setAdapter(new MoneyEntriesAdapter());
+        rvMoneyEntries.setHasFixedSize(true);
+    }
+
+    private void initToolbar() {
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
     }
 
     @Override
@@ -88,6 +107,12 @@ public class ReadDeleteMoneyEntryActivity extends AppCompatActivity implements R
     @Override
     public void setPresenter(ReadDeleteMoneyEntryContract.Presenter presenter) {
         this.mPresenter = presenter;
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        unbinder.unbind();
     }
 }
 

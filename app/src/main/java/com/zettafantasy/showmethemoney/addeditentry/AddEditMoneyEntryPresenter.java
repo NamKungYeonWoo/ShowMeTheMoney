@@ -3,14 +3,16 @@ package com.zettafantasy.showmethemoney.addeditentry;
 import android.content.ContentValues;
 import android.content.Context;
 import android.net.Uri;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 
 import com.zettafantasy.showmethemoney.data.MoneyEntryColumns;
 import com.zettafantasy.showmethemoney.data.MoneyEntryProvider;
 import com.zettafantasy.showmethemoney.entity.MoneyEntry;
+import com.zettafantasy.showmethemoney.readdeleteentry.MoneyEntriesAdapter;
 
 /**
- * Created by uije on 17. 4. 5.
+ * @author UJ
  */
 
 public class AddEditMoneyEntryPresenter implements AddEditMoneyEntryContract.Presenter {

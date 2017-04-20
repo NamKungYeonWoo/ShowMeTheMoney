@@ -12,7 +12,11 @@
             android:name="com.zettafantasy.showmethemoney.addeditentry.AddEditMoneyEntryActivity"
             android:label="@string/app_name"
             android:launchMode="singleTop"
-            android:theme="@style/AppTheme.OverlapSystemBar" />
+            android:theme="@style/AppTheme.OverlapSystemBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".readdeleteentry.ReadDeleteMoneyEntryActivity" />
+        </activity>
 
         <activity
             android:name="com.zettafantasy.showmethemoney.readdeleteentry.ReadDeleteMoneyEntryActivity"
@@ -29,7 +33,6 @@
             android:name=".data.generated.MoneyEntryProvider"
             android:authorities="com.zettafantasy.showmethemoney.data.MoneyEntryProvider"
             android:exported="false" />
-
     </application>
 
 </manifest>

@@ -13,9 +13,37 @@
     tools:context="com.zettafantasy.showmethemoney.MainActivity"
     tools:showIn="@layout/act_read_delete_entry">
 
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rvEntries"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
     <TextView
-        android:id="@+id/tvHelloWorld"
+        android:id="@+id/abc123"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!" />
+        android:layout_centerInParent="true"
+        android:includeFontPadding="false"
+        android:text="ag,^"
+        android:textSize="14dp" />
+
+    <TextView
+        android:id="@+id/abc1234"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/abc123"
+        android:layout_alignBottom="@id/abc123"
+        android:includeFontPadding="false"
+        android:text="AB,^"
+        android:textSize="14dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/abc1234"
+        android:layout_alignBottom="@id/abc1234"
+        android:includeFontPadding="false"
+        android:text="가나,^"
+        android:textSize="14dp" />
+
 </RelativeLayout>
