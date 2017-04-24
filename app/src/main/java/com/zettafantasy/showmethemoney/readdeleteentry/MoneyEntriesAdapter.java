@@ -34,6 +34,9 @@ public class MoneyEntriesAdapter extends RecyclerView.Adapter<MoneyEntriesAdapte
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         //TODO 데이터 읽어오기
+        mCursor.moveToPosition(position);
+
+
         holder.memoView.setText("hello");
     }
 
@@ -48,12 +51,18 @@ public class MoneyEntriesAdapter extends RecyclerView.Adapter<MoneyEntriesAdapte
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
+        public final TextView dateView;
+        public final TextView subtypeView;
         public final TextView memoView;
+        public final TextView amountView;
 
         public ViewHolder(View itemView) {
             super(itemView);
 
             memoView = (TextView) itemView.findViewById(R.id.list_item_memo_tv);
+            dateView = (TextView) itemView.findViewById(R.id.list_item_date_tv);
+            subtypeView = (TextView) itemView.findViewById(R.id.list_item_subtype_tv);
+            amountView = (TextView) itemView.findViewById(R.id.list_item_amount_tv);
         }
     }
 }
