@@ -8,7 +8,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.zettafantasy.showmethemoney.MoneyEntryUtils;
 import com.zettafantasy.showmethemoney.R;
+import com.zettafantasy.showmethemoney.StringUtils;
+import com.zettafantasy.showmethemoney.entity.MoneyEntry;
 
 /**
  * @author UJ
@@ -16,7 +19,12 @@ import com.zettafantasy.showmethemoney.R;
 
 public class MoneyEntriesAdapter extends RecyclerView.Adapter<MoneyEntriesAdapter.ViewHolder> {
 
+    private final Context mContext;
     private Cursor mCursor;
+
+    public MoneyEntriesAdapter(Context context) {
+        this.mContext = context;
+    }
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -33,11 +41,20 @@ public class MoneyEntriesAdapter extends RecyclerView.Adapter<MoneyEntriesAdapte
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        //TODO 데이터 읽어오기
         mCursor.moveToPosition(position);
+        MoneyEntry entry = MoneyEntryUtils.getMoneyEntry(mCursor);
 
-
-        holder.memoView.setText("hello");
+        holder.memoView.setText(entry.getMemo());
+        holder.amountView.setText(StringUtils.makeNumberComma(entry.getAmount()));
+        if (entry.getType() == MoneyEntry.Type.INCOME) {
+            holder.amountView.setTextColor(mContext.getResources().getColor(R.color.colorIncome, null));
+        } else if (entry.getType() == MoneyEntry.Type.EXPENSE) {
+            holder.amountView.setTextColor(mContext.getResources().getColor(R.color.colorExpense, null));
+        } else {
+            throw new IllegalArgumentException();
+        }
+        holder.subtypeView.setText(MoneyEntryUtils.getSubTypeText(entry.getSubType()));
+        holder.dateView.setText(MoneyEntryUtils.getDateText(entry.getDate()));
     }
 
     @Override

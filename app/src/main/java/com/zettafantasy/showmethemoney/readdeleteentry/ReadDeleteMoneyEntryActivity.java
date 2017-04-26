@@ -23,6 +23,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.support.v7.widget.helper.ItemTouchHelper;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -50,7 +51,7 @@ public class ReadDeleteMoneyEntryActivity extends AppCompatActivity implements R
         initToolbar();
         initRvMoneyEntries();
 
-        setPresenter(new ReadDeleteEntryPresenter(this, getApplicationContext(), (MoneyEntriesAdapter)rvMoneyEntries.getAdapter()));
+        setPresenter(new ReadDeleteEntryPresenter(this, getApplicationContext(), (MoneyEntriesAdapter) rvMoneyEntries.getAdapter()));
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -66,8 +67,26 @@ public class ReadDeleteMoneyEntryActivity extends AppCompatActivity implements R
     private void initRvMoneyEntries() {
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
         rvMoneyEntries.setLayoutManager(linearLayoutManager);
-        rvMoneyEntries.setAdapter(new MoneyEntriesAdapter());
+        rvMoneyEntries.setAdapter(new MoneyEntriesAdapter(this));
         rvMoneyEntries.setHasFixedSize(true);
+
+        ItemTouchHelper.SimpleCallback simpleItemTouchCallback = new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
+            public boolean onMove(RecyclerView recyclerView,
+                                  RecyclerView.ViewHolder viewHolder, RecyclerView.ViewHolder target) {
+//                    final int fromPos = viewHolder.getAdapterPosition();
+//                    final int toPos = viewHolder.getAdapterPosition();
+//                    // move item in `fromPos` to `toPos` in adapter.
+                return false;// true if moved, false otherwise
+            }
+
+            @Override
+            public void onSwiped(RecyclerView.ViewHolder viewHolder, int swipeDir) {
+                //Remove swiped item from list and notify the RecyclerView
+//                mAdapter.notifyItemRemoved(viewHolder.getLayoutPosition());
+            }
+        };
+        ItemTouchHelper itemTouchHelper = new ItemTouchHelper(simpleItemTouchCallback);
+        itemTouchHelper.attachToRecyclerView(rvMoneyEntries);
     }
 
     private void initToolbar() {

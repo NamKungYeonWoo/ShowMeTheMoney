@@ -31,6 +31,7 @@ import android.widget.DatePicker;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 
+import com.zettafantasy.showmethemoney.MoneyEntryUtils;
 import com.zettafantasy.showmethemoney.R;
 import com.zettafantasy.showmethemoney.StringUtils;
 import com.zettafantasy.showmethemoney.entity.MoneyEntry;
@@ -86,7 +87,6 @@ public class AddEditMoneyEntryActivity extends AppCompatActivity implements AddE
     RadioGroup mTypeRadioGroup;
 
     private Unbinder unbinder;
-    private String[] SUBTYPE_TEXT_LIST;
 
     private long mEntryAmount;
     private long mEntryId;
@@ -167,7 +167,6 @@ public class AddEditMoneyEntryActivity extends AppCompatActivity implements AddE
     }
 
     private void initEntrySubType() {
-        SUBTYPE_TEXT_LIST = getResources().getStringArray(R.array.entry_expense_type);
         setSubType(0);
         mSubTypeView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -179,13 +178,13 @@ public class AddEditMoneyEntryActivity extends AppCompatActivity implements AddE
 
     public void setSubType(int subType) {
         mEntrySubtype = subType;
-        mSubTypeView.setText(SUBTYPE_TEXT_LIST[mEntrySubtype]);
+        mSubTypeView.setText(MoneyEntryUtils.getSubTypeText(mEntrySubtype));
     }
 
     public void launchSubtypePicker() {
         new AlertDialog.Builder(this)
                 .setTitle("타입")
-                .setSingleChoiceItems(SUBTYPE_TEXT_LIST, mEntrySubtype, new DialogInterface.OnClickListener() {
+                .setSingleChoiceItems(MoneyEntryUtils.getSubTypeText(), mEntrySubtype, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         dialogInterface.dismiss();

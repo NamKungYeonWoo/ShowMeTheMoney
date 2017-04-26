@@ -30,15 +30,8 @@ class ReadDeleteEntryPresenter implements ReadDeleteMoneyEntryContract.Presenter
 
     @Override
     public void showEntries() {
-        // list all entry
         Cursor cursor = mContext.getContentResolver().query(MoneyEntryProvider.MoneyEntries.CONTENT_URI
                 , null, null, null, null);
-
         mAdapter.setCursor(cursor);
-
-        while (cursor.moveToNext()) {
-            Log.v(TAG, cursor.getString(cursor.getColumnIndex(MoneyEntryColumns.MEMO)));
-        }
-
     }
 }

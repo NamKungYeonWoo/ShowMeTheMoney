@@ -5,12 +5,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginEnd="8dp"
-    android:layout_marginLeft="8dp"
-    android:layout_marginRight="8dp"
-    android:layout_marginStart="8dp"
+    android:background="@drawable/touch_selector"
+    android:clickable="true"
     android:minHeight="?android:attr/listPreferredItemHeight"
-    android:orientation="horizontal">
+    android:orientation="horizontal"
+    android:paddingEnd="8dp"
+    android:paddingLeft="8dp"
+    android:paddingRight="8dp"
+    android:paddingStart="8dp">
 
     <TextView
         android:id="@+id/list_item_date_tv"
@@ -21,6 +23,18 @@
         android:fontFamily="sans-serif-condensed"
         android:textSize="20sp"
         tools:text="04.19(wed)" />
+
+    <TextView
+        android:id="@+id/list_item_amount_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:fontFamily="sans-serif-condensed"
+        android:textColor="@color/colorExpense"
+        android:textSize="20sp"
+        tools:text="￦1,500" />
 
     <LinearLayout
         android:id="@+id/list_item_subtype_memo"
@@ -55,16 +69,4 @@
             android:textSize="20sp"
             tools:text="abcdefghijklmnop abcdefghijklmnop abcdefghijklmnop" />
     </LinearLayout>
-
-    <TextView
-        android:id="@+id/list_item_amount_tv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_centerVertical="true"
-        android:fontFamily="sans-serif-condensed"
-        android:textColor="@color/colorExpense"
-        android:textSize="20sp"
-        tools:text="￦1,500" />
 </RelativeLayout>

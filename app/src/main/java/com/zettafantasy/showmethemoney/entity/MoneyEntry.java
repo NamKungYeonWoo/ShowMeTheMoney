@@ -88,5 +88,14 @@ public class MoneyEntry {
         public int getValue() {
             return value;
         }
+
+        public static Type valueOf(int value) {
+            for (Type type : Type.values()) {
+                if (type.getValue() == value) {
+                    return type;
+                }
+            }
+            return null;
+        }
     }
 }
