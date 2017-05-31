@@ -16,9 +16,11 @@
 
 package com.zettafantasy.showmethemoney.readdeleteentry;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -67,22 +69,35 @@ public class ReadDeleteMoneyEntryActivity extends AppCompatActivity implements R
     private void initRvMoneyEntries() {
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
         rvMoneyEntries.setLayoutManager(linearLayoutManager);
-        rvMoneyEntries.setAdapter(new MoneyEntriesAdapter(this));
+        final MoneyEntriesAdapter moneyEntriesAdapter = new MoneyEntriesAdapter(this);
+        rvMoneyEntries.setAdapter(moneyEntriesAdapter);
         rvMoneyEntries.setHasFixedSize(true);
 
         ItemTouchHelper.SimpleCallback simpleItemTouchCallback = new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
-            public boolean onMove(RecyclerView recyclerView,
-                                  RecyclerView.ViewHolder viewHolder, RecyclerView.ViewHolder target) {
-//                    final int fromPos = viewHolder.getAdapterPosition();
-//                    final int toPos = viewHolder.getAdapterPosition();
-//                    // move item in `fromPos` to `toPos` in adapter.
-                return false;// true if moved, false otherwise
+
+            @Override
+            public boolean onMove(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder, RecyclerView.ViewHolder target) {
+                return false;
             }
 
             @Override
             public void onSwiped(RecyclerView.ViewHolder viewHolder, int swipeDir) {
-                //Remove swiped item from list and notify the RecyclerView
-//                mAdapter.notifyItemRemoved(viewHolder.getLayoutPosition());
+                //삭제여부 확인 팝업
+                AlertDialog.Builder builder = new AlertDialog.Builder(ReadDeleteMoneyEntryActivity.this);
+                builder.setMessage("삭제하시겠습니까?")
+                        .setPositiveButton("네", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                // FIRE ZE MISSILES!
+                            }
+                        })
+                        .setNegativeButton("아니오", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                moneyEntriesAdapter.notifyDataSetChanged();
+                            }
+                        });
+                // Create the AlertDialog object and return it
+                AlertDialog alertDialog = builder.create();
+                alertDialog.show();
             }
         };
         ItemTouchHelper itemTouchHelper = new ItemTouchHelper(simpleItemTouchCallback);

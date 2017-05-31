@@ -23,7 +23,7 @@
             android:name="com.zettafantasy.showmethemoney.readdeleteentry.ReadDeleteMoneyEntryActivity"
             android:label="@string/app_name"
             android:launchMode="singleTop"
-            android:theme="@style/AppTheme.OverlapSystemBar">
+            android:theme="@style/Base.AppTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
