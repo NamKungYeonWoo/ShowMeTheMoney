@@ -55,6 +55,8 @@ public class MoneyEntriesAdapter extends RecyclerView.Adapter<MoneyEntriesAdapte
         }
         holder.subtypeView.setText(MoneyEntryUtils.getSubTypeText(entry.getSubType()));
         holder.dateView.setText(MoneyEntryUtils.getDateText(entry.getDate()));
+
+        holder.itemView.setTag(entry.get_id()); //아이템 수정,삭제시 사용되는 key
     }
 
     @Override

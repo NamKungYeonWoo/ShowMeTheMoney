@@ -26,6 +26,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.support.v7.widget.helper.ItemTouchHelper;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -38,6 +39,7 @@ import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
 public class ReadDeleteMoneyEntryActivity extends AppCompatActivity implements ReadDeleteMoneyEntryContract.View {
+    private static final String TAG = ReadDeleteMoneyEntryActivity.class.getSimpleName();
 
     private ReadDeleteMoneyEntryContract.Presenter mPresenter;
     private Unbinder unbinder;
@@ -82,20 +84,28 @@ public class ReadDeleteMoneyEntryActivity extends AppCompatActivity implements R
 
             @Override
             public void onSwiped(RecyclerView.ViewHolder viewHolder, int swipeDir) {
+                final Long _id = (Long) viewHolder.itemView.getTag();
+                if (_id == null) {
+                    Log.e(TAG, "Fail to get entry _id");
+                    moneyEntriesAdapter.notifyDataSetChanged();
+                    return;
+                }
+
                 //삭제여부 확인 팝업
                 AlertDialog.Builder builder = new AlertDialog.Builder(ReadDeleteMoneyEntryActivity.this);
-                builder.setMessage("삭제하시겠습니까?")
-                        .setPositiveButton("네", new DialogInterface.OnClickListener() {
+                builder.setMessage(R.string.wanna_delete)
+                        .setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
-                                // FIRE ZE MISSILES!
+                                mPresenter.delete(_id);
+                                mPresenter.showEntries();
                             }
                         })
-                        .setNegativeButton("아니오", new DialogInterface.OnClickListener() {
+                        .setNegativeButton(R.string.no, new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
                                 moneyEntriesAdapter.notifyDataSetChanged();
                             }
                         });
-                // Create the AlertDialog object and return it
+
                 AlertDialog alertDialog = builder.create();
                 alertDialog.show();
             }

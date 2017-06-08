@@ -36,6 +36,8 @@ public class MoneyEntryUtils {
         entry.setAmount(amount);
         String memo = mCursor.getString(mCursor.getColumnIndex(MoneyEntryColumns.MEMO));
         entry.setMemo(memo);
+        long _id = mCursor.getLong(mCursor.getColumnIndex(MoneyEntryColumns._ID));
+        entry.set_id(_id);
 
         return entry;
     }

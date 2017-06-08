@@ -25,6 +25,9 @@
     <string name="default_entry_type">\?</string>
     <string name="hint_et_entry_desc">상세 설명</string>
     <string name="icon_for_entry_type">icon for entry type</string>
+    <string name="wanna_delete">삭제하시겠습니까?</string>
+    <string name="yes">네</string>
+    <string name="no">아니오</string>
 
     <string-array name="expense_type">
         <item>식비</item>

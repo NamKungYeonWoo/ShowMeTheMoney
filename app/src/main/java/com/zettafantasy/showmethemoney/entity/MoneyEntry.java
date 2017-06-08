@@ -63,7 +63,7 @@ public class MoneyEntry {
         this.subType = subType;
     }
 
-    public long get_id() {
+    public Long get_id() {
         return _id;
     }
 

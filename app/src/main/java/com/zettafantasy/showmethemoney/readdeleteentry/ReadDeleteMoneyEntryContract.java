@@ -26,5 +26,7 @@ public interface ReadDeleteMoneyEntryContract {
 
     interface Presenter extends BasePresenter {
         void showEntries();
+
+        void delete(long id);
     }
 }

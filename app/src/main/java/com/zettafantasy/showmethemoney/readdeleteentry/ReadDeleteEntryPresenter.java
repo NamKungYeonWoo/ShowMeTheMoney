@@ -34,4 +34,20 @@ class ReadDeleteEntryPresenter implements ReadDeleteMoneyEntryContract.Presenter
                 , null, null, null, null);
         mAdapter.setCursor(cursor);
     }
+
+    @Override
+    public void delete(long id) {
+        int rowsDeleted = 0;
+
+        try {
+            rowsDeleted = mContext.getContentResolver().delete(MoneyEntryProvider.MoneyEntries.CONTENT_URI,
+                    "_id = ?", new String[]{Long.toString(id)});
+        } catch (Exception e) {
+            Log.e(TAG, "Fail to delete entry, id : " + id, e);
+        }
+
+        if (rowsDeleted == 0) {
+            Log.e(TAG, "Fail to delete entry, id : " + id);
+        }
+    }
 }
