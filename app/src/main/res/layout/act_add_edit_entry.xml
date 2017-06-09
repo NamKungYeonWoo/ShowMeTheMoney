@@ -176,7 +176,7 @@
                     android:src="@drawable/ic_description_black_24dp" />
 
                 <TextView
-                    android:id="@+id/textView3333"
+                    android:id="@+id/tvLine3333"
                     android:layout_width="wrap_content"
                     android:layout_height="1.0px"
                     android:layout_alignParentBottom="true"
@@ -186,19 +186,15 @@
                     android:layout_toEndOf="@id/imageView1111"
                     android:background="#ffdddddd" />
 
-                <EditText
+                <TextView
                     android:id="@+id/etMemo"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_above="@id/textView3333"
-                    android:layout_alignEnd="@id/textView3333"
-                    android:layout_alignStart="@id/textView3333"
+                    android:layout_above="@id/tvLine3333"
+                    android:layout_alignEnd="@id/tvLine3333"
+                    android:layout_alignStart="@id/tvLine3333"
                     android:gravity="center"
-                    android:hint="@string/hint_et_entry_desc"
-                    android:inputType="textMultiLine"
-                    android:lines="2"
-                    android:maxLines="2"
-                    android:minLines="1"
+                    android:text="상세설명"
                     android:textAppearance="?android:textAppearanceMedium"
                     android:textColor="#ffaaaaaa" />
             </RelativeLayout>
